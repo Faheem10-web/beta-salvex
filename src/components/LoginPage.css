@@ -1,0 +1,354 @@
+/* ==========================================================================
+   SALVEX AUCTION - LOGIN PAGE STYLING
+   ========================================================================== */
+
+.salvex-login-page {
+  min-height: 100vh;
+  padding-top: 140px;
+  padding-bottom: 90px;
+  background-color: #F8FAFC;
+  background-image: radial-gradient(circle at 50% 100px, rgba(220, 38, 38, 0.03) 0%, transparent 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+.login-card-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 40px 36px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px -5px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.login-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.login-badge-secure {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  border-radius: 999px;
+  color: #1E40AF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.login-subtitle {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+/* Status Alerts */
+.login-alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.alert-error {
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+}
+
+.alert-warning {
+  background-color: #FFFBEB;
+  border: 1px solid #FDE68A;
+  color: #92400E;
+}
+
+.alert-success {
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
+}
+
+/* Auth Mode Tabs */
+.auth-mode-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+  background: #F1F5F9;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.auth-mode-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748B;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.auth-mode-btn:hover {
+  color: #0F172A;
+}
+
+.auth-mode-btn.mode-active {
+  background: #FFFFFF;
+  color: #0F172A;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  font-weight: 700;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  text-align: left;
+}
+
+.label-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link-forgot {
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #DC2626;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.link-forgot:hover {
+  color: #B91C1C;
+  text-decoration: underline;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-icon > svg:first-child {
+  position: absolute;
+  left: 14px;
+  color: #94A3B8;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.input-with-icon input {
+  width: 100%;
+  height: 46px;
+  padding-left: 42px;
+  padding-right: 14px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #0F172A;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-with-icon input:focus {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.btn-toggle-eye {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.15s ease;
+}
+
+.btn-toggle-eye:hover {
+  color: #0F172A;
+}
+
+/* Submit Button */
+.btn-login-submit {
+  width: 100%;
+  height: 48px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  margin-top: 6px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-login-submit:hover:not(:disabled) {
+  background-color: #B91C1C;
+}
+
+.btn-login-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Quick Demo Persona Switcher */
+.demo-persona-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #E2E8F0;
+  text-align: center;
+}
+
+.demo-persona-title {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748B;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.demo-persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.persona-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 12px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.persona-btn:hover {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  color: #1E40AF;
+}
+
+/* Footer / Registration prompt */
+.login-footer {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13.5px;
+  color: #64748B;
+}
+
+.link-register {
+  background: none;
+  border: none;
+  color: #DC2626;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 13.5px;
+  transition: color 0.15s ease;
+}
+
+.link-register:hover {
+  text-decoration: underline;
+  color: #B91C1C;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .salvex-login-page {
+    padding-top: 120px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .login-card-container {
+    padding: 28px 20px;
+  }
+  .demo-persona-grid {
+    grid-template-columns: 1fr;
+  }
+}

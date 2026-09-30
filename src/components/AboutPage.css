@@ -1,0 +1,614 @@
+/* ==========================================================================
+   SALVEX AUCTION - ABOUT US PAGE (PREMIUM CLEAN LIGHT THEME)
+   Style:
+   - White / light background (#FFFFFF & #F8FAFC)
+   - Navy blue typography (#0B1220, #0F172A)
+   - Subtle blue & brand red accents (#2563EB, #DC2626)
+   - Premium corporate feel, clean cards, soft borders (#E2E8F0)
+   - Minimal shadows, rounded corners, high-end automotive imagery
+   ========================================================================== */
+
+.salvex-about-page {
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.about-max-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   01 SPLIT-LAYOUT ABOUT HERO (White/Light Canvas with 140px Clearance)
+   -------------------------------------------------------------------------- */
+.about-hero-clean {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 70px;
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  border-bottom: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.about-hero-split-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 56px;
+}
+
+/* LEFT COLUMN */
+.about-hero-left {
+  max-width: 640px;
+}
+
+
+.about-headline {
+  font-size: clamp(34px, 3.6vw, 48px);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #0B1220;
+  letter-spacing: -0.025em;
+  margin: 0 0 18px 0;
+}
+
+.about-headline .text-highlight {
+  color: #DC2626;
+}
+
+.about-supporting-text {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 32px 0;
+}
+
+/* CTA Buttons */
+.about-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.btn-about-primary {
+  height: 48px;
+  padding: 0 24px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  transition: all 0.15s ease;
+}
+
+.btn-about-primary:hover {
+  background-color: #B91C1C;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-about-secondary {
+  height: 48px;
+  padding: 0 22px;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 9px;
+  border: 1px solid #CBD5E1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-about-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #0F172A;
+}
+
+
+
+/* RIGHT COLUMN: Realistic Automotive Layered Composition */
+.about-hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-visual-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  min-height: 430px;
+}
+
+/* Single Premium Vehicle Showcase Card */
+.about-single-image-card {
+  position: relative;
+  width: 100%;
+  height: 430px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 16px 40px -6px rgba(15, 23, 42, 0.12), 0 6px 18px rgba(37, 99, 235, 0.06);
+  background-color: #070B14;
+}
+
+.about-single-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.about-single-image-card:hover .about-single-img {
+  transform: scale(1.02);
+}
+
+.about-single-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 11, 20, 0.08) 0%, rgba(7, 11, 20, 0.4) 100%);
+  pointer-events: none;
+}
+
+
+
+
+/* --------------------------------------------------------------------------
+   02 TRUST / STATISTICS SECTION (Wide Horizontal Card)
+   -------------------------------------------------------------------------- */
+.about-stats-section {
+  padding: 0 0 70px 0;
+  background-color: #FFFFFF;
+}
+
+.about-stats-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 38px 40px;
+  box-shadow: 0 6px 24px -4px rgba(15, 23, 42, 0.05);
+  position: relative;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.about-stat-item {
+  position: relative;
+  text-align: left;
+}
+
+.about-stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -16px;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: #E2E8F0;
+}
+
+.about-stat-value {
+  font-size: 38px;
+  font-weight: 900;
+  color: #0B1220;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.about-stat-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 4px;
+}
+
+.about-stat-sub {
+  font-size: 12.5px;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   03 THE MARKETPLACE BRIDGE & INVENTORY SOURCING
+   -------------------------------------------------------------------------- */
+.about-bridge-section {
+  padding: 70px 0;
+  background-color: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+}
+
+.about-bridge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.about-bridge-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-bridge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08);
+}
+
+.bridge-category-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563EB;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.about-bridge-card h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.015em;
+}
+
+.bridge-lead-desc {
+  font-size: 14.5px;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.bridge-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bridge-bullet-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.bridge-bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #2563EB;
+}
+
+.bridge-bullet-list li strong {
+  color: #0B1220;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   04 CORE ASSET FOCUS (4-COLUMN GRID)
+   -------------------------------------------------------------------------- */
+.about-focus-section-clean {
+  padding: 72px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.about-section-header-center {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px auto;
+}
+
+.clean-subhead-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563EB;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.about-section-header-center h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.clean-section-subtext {
+  font-size: 15px;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-focus-4col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.about-focus-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 30px 24px;
+  transition: all 0.2s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.about-focus-card:hover {
+  background: #FFFFFF;
+  border-color: #2563EB;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.08);
+}
+
+.focus-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.focus-badge-number {
+  font-size: 26px;
+  font-weight: 900;
+  color: #2563EB;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.focus-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-focus-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0B1220;
+  margin: 0 0 10px 0;
+}
+
+.about-focus-card p {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   05 WHAT WE OFFER & OUR APPROACH (Two-Sided Card)
+   -------------------------------------------------------------------------- */
+.about-offer-section-clean {
+  padding: 72px 0 96px;
+  background-color: #F8FAFC;
+}
+
+.about-offer-split-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 48px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  box-sizing: border-box;
+}
+
+.offer-side-col h2,
+.approach-side-col h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+
+.offer-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.offer-check-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #334155;
+  background: #F8FAFC;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.offer-check-pill:hover {
+  border-color: #CBD5E1;
+  background-color: #FFFFFF;
+  color: #0B1220;
+}
+
+.text-accent-blue {
+  color: #2563EB;
+  flex-shrink: 0;
+}
+
+.approach-side-col p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0 0 18px 0;
+}
+
+.approach-button-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.btn-approach-primary {
+  height: 48px;
+  padding: 0 22px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  transition: all 0.15s ease;
+}
+
+.btn-approach-primary:hover {
+  background-color: #B91C1C;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+}
+
+.btn-approach-secondary {
+  height: 48px;
+  padding: 0 22px;
+  background-color: transparent;
+  color: #0F172A;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #CBD5E1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-approach-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #0F172A;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE LAYOUT
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .about-hero-split-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about-hero-left {
+    max-width: 100%;
+  }
+  .about-visual-canvas {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .about-focus-4col-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .about-stat-item:not(:last-child)::after {
+    display: none;
+  }
+  .about-bridge-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-offer-split-card {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-max-container {
+    padding: 0 20px;
+  }
+  .about-hero-clean {
+    padding-top: 120px;
+    padding-bottom: 50px;
+  }
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .about-focus-4col-grid {
+    grid-template-columns: 1fr;
+  }
+  .offer-checklist-grid {
+    grid-template-columns: 1fr;
+  }
+}

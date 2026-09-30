@@ -1,0 +1,563 @@
+/* ==========================================================================
+   SALVEX AUCTION - TWO-ROW COMPACT NAVBAR (DARK NAVY REFERENCE SPECIFICATION)
+   ========================================================================== */
+
+.salvex-two-row-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #070B14;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.10);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  user-select: none;
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: visible;
+}
+
+.salvex-two-row-navbar.navbar-hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.salvex-two-row-navbar.navbar-scrolled {
+  background-color: rgba(7, 11, 20, 0.98);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+}
+
+/* Subtle red ambient glow toward the right side matching reference */
+.navbar-red-ambient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 560px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 90% 45%, rgba(220, 38, 38, 0.22) 0%, rgba(220, 38, 38, 0.05) 50%, transparent 75%);
+}
+
+.navbar-row {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 2.5vw, 36px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   ROW 1: BRAND + SEARCH + UTILITY / ACCOUNT ACTIONS (Height: 62-64px)
+   -------------------------------------------------------------------------- */
+.navbar-row-primary {
+  height: 64px;
+}
+
+.navbar-brand-wrap {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.navbar-brand-wrap:hover {
+  opacity: 0.92;
+}
+
+.navbar-brand-wrap .salvex-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 175px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Subtle vertical divider after the logo */
+.navbar-logo-divider {
+  width: 1px;
+  height: 28px;
+  background-color: rgba(226, 232, 240, 0.15);
+  margin-left: 20px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+/* SEARCH AREA: Large white search field + solid Auction Red button */
+.navbar-search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 1;
+  margin-right: auto;
+}
+
+.navbar-search-field-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: clamp(340px, 34vw, 530px);
+  height: 44px;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.15s ease;
+}
+
+.navbar-search-field-wrap:focus-within {
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.4), 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.navbar-search-icon {
+  position: absolute;
+  left: 14px;
+  color: #64748B;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.navbar-search-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-left: 42px;
+  padding-right: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #1E293B;
+  border-radius: 7px;
+}
+
+.navbar-search-input::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+/* SEARCH INVENTORY Button (#DC2626, 44px, radius 7px, white text) */
+.btn-search-inventory {
+  height: 44px;
+  padding: 0 20px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-search-inventory .btn-search-icon {
+  flex-shrink: 0;
+  color: #FFFFFF;
+}
+
+.btn-search-inventory:hover {
+  background-color: #B91C1C;
+}
+
+.btn-search-inventory:active {
+  transform: scale(0.98);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT SIDE — UTILITY CONTROLS
+   -------------------------------------------------------------------------- */
+.navbar-utility-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+/* List Your Vehicle: Secondary outline button */
+.btn-nav-list-vehicle {
+  height: 42px;
+  padding: 0 16px;
+  background: transparent;
+  border: 1px solid rgba(226, 232, 240, 0.22);
+  border-radius: 7px;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-nav-list-vehicle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+}
+
+/* Vertical divider between List Your Vehicle and Login */
+.navbar-sub-divider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(226, 232, 240, 0.14);
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+/* Login: Simple button with User icon, color #CBD5E1 */
+.btn-nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 6px;
+  color: #CBD5E1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.btn-nav-login:hover {
+  color: #FFFFFF;
+}
+
+/* Register as Bidder → : Primary CTA */
+.btn-nav-register-cta {
+  height: 42px;
+  padding: 0 18px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-nav-register-cta:hover {
+  background-color: #B91C1C;
+}
+
+.btn-nav-register-cta:hover .btn-arrow {
+  transform: translateX(2px);
+}
+
+.btn-nav-register-cta:active {
+  transform: scale(0.98);
+}
+
+.btn-arrow {
+  transition: transform 0.15s ease;
+}
+
+/* Mobile Top Actions (hidden on desktop) */
+.navbar-mobile-top-actions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.mobile-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.15);
+  color: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mobile-icon-btn:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-hamburger-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.15);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.navbar-hamburger-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   ROW 2: MAIN NAVIGATION (44px height, Left Aligned)
+   -------------------------------------------------------------------------- */
+.navbar-row-secondary {
+  height: 44px;
+  border-top: 1px solid rgba(226, 232, 240, 0.08);
+  background-color: #070B14;
+}
+
+.navbar-links-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: 100%;
+}
+
+.nav-row2-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: #CBD5E1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 2px;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.nav-row2-link:hover {
+  color: #FFFFFF;
+}
+
+.nav-row2-active {
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+/* Active Home Underline: Exactly 32px wide, 2px height, #DC2626 */
+.nav-active-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background-color: #DC2626;
+  border-radius: 1px;
+}
+
+/* LIVE badge: Background: #DC2626, White text, Font: 10px, 700, radius 999px */
+.nav-live-capsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 2.5px 7px;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1320px) {
+  .navbar-search-field-wrap {
+    width: clamp(260px, 26vw, 380px);
+  }
+  .navbar-utility-group {
+    gap: 10px;
+    margin-left: 12px;
+  }
+  .navbar-links-left {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .navbar-row-secondary {
+    display: none;
+  }
+  .navbar-search-form {
+    display: none;
+  }
+  .navbar-utility-group {
+    display: none;
+  }
+  .navbar-logo-divider {
+    display: none;
+  }
+  .navbar-mobile-top-actions {
+    display: flex;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE SLIDE-OUT DRAWER
+   -------------------------------------------------------------------------- */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(7, 11, 20, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-backdrop.mobile-menu-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background-color: #070B14;
+  border-left: 1px solid rgba(226, 232, 240, 0.12);
+  z-index: 1100;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-drawer.mobile-drawer-open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.12);
+}
+
+.mobile-close-btn {
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-close-btn:hover {
+  color: #FFFFFF;
+}
+
+.mobile-drawer-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 6px;
+  color: #E2E8F0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-active {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+
+.mobile-nav-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-drawer-divider {
+  height: 1px;
+  background-color: rgba(226, 232, 240, 0.12);
+  margin: 4px 0;
+}
+
+.mobile-drawer-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-drawer-ctas .btn-nav-list-vehicle,
+.mobile-drawer-ctas .btn-nav-login,
+.mobile-drawer-ctas .btn-nav-register-cta {
+  justify-content: center;
+  width: 100%;
+}

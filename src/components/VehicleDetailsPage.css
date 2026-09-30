@@ -1,0 +1,1458 @@
+/* ==========================================================================
+   SALVEX AUCTION — MINIMAL VEHICLE DETAILS / LIVE AUCTION PAGE
+   Clean, premium, focused auction UX (Inter, #0B1220, #070B14, #DC2626, #F8FAFC)
+   ========================================================================== */
+
+.salvex-vehicle-minimal-page,
+.salvex-marketplace-page {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  color: #0B1220;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 128px;
+}
+
+.minimal-page-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   01 COMPACT BREADCRUMB
+   -------------------------------------------------------------------------- */
+.minimal-breadcrumb-nav {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 10px 0;
+}
+
+.breadcrumb-inner-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+.crumb-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12.5px;
+  color: #64748B;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.crumb-btn:hover {
+  color: #0B1220;
+  text-decoration: underline;
+}
+
+.crumb-slash {
+  color: #CBD5E1;
+  font-size: 11px;
+  user-select: none;
+}
+
+.crumb-active {
+  color: #0B1220;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   02 PRIMARY VEHICLE AREA (Desktop 3-Column: 45% / 28% / 27%)
+   One cohesive product interface
+   -------------------------------------------------------------------------- */
+.primary-vehicle-section {
+  padding: 24px 0 28px 0;
+}
+
+.primary-vehicle-3col {
+  display: grid;
+  grid-template-columns: 45fr 28fr 27fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   COLUMN 1: VEHICLE GALLERY (LEFT 45%)
+   -------------------------------------------------------------------------- */
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gallery-main-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #070B14;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-active-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+/* LIVE AUCTION Tag (Top Left) */
+.gallery-live-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.35);
+  z-index: 2;
+}
+
+.live-tag-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  animation: pulse-dot 1.4s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+/* Top Right: Counter (5 / 24) & Save/Share Icons */
+.gallery-top-right-group {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.gallery-counter-pill {
+  background: rgba(7, 11, 20, 0.75);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gallery-save-btn,
+.gallery-share-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: rgba(7, 11, 20, 0.75);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.gallery-save-btn:hover,
+.gallery-share-btn:hover {
+  background: rgba(7, 11, 20, 0.95);
+  transform: scale(1.05);
+}
+
+.save-btn-active {
+  background-color: #FEF2F2 !important;
+  border-color: #FECACA !important;
+  color: #DC2626 !important;
+}
+
+/* Gallery Nav Arrows */
+.gallery-slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #E2E8F0;
+  color: #0B1220;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-slide-arrow:hover {
+  background: #FFFFFF;
+  color: #DC2626;
+  border-color: #DC2626;
+}
+
+.arrow-left { left: 10px; }
+.arrow-right { right: 10px; }
+
+/* 5 Compact Thumbnails (Front, Rear, Side, Interior, Engine / +18 Photos) */
+.gallery-thumbs-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.gallery-thumb-slot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid #E2E8F0;
+  background-color: #070B14;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.gallery-thumb-slot:hover {
+  border-color: #94A3B8;
+}
+
+.thumb-active {
+  border-color: #DC2626 !important;
+}
+
+.thumb-slot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-slot-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(7, 11, 20, 0.85);
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  padding: 2px;
+}
+
+.thumb-plus-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 11, 20, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   COLUMN 2: VEHICLE INFORMATION (CENTER 28%)
+   Clean, compact, no duplicate text
+   -------------------------------------------------------------------------- */
+.info-column {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-title-text {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #0B1220;
+  letter-spacing: -0.015em;
+  margin: 0 0 6px 0;
+}
+
+.vehicle-sub-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 16px;
+}
+
+.meta-sep {
+  color: #CBD5E1;
+}
+
+.stock-id-badge {
+  font-family: monospace;
+  font-weight: 600;
+  color: #334155;
+  background-color: #F1F5F9;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* Compact 2 × 2 Specification Layout */
+.key-specs-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.key-spec-cell {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.key-spec-label {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.key-spec-val-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.spec-val-icon {
+  color: #64748B;
+  flex-shrink: 0;
+}
+
+.key-spec-value {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0B1220;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Condition Badges (Small Semantic Badges) */
+.condition-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.cond-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.cond-success {
+  color: #16A344;
+  background-color: #DCFCE7;
+  border-color: #BBF7D0;
+}
+
+.cond-info {
+  color: #2563EB;
+  background-color: #EFF6FF;
+  border-color: #BFDBFE;
+}
+
+.cond-inspected {
+  color: #0F766E;
+  background-color: #CCFBF1;
+  border-color: #99F6E4;
+}
+
+.cond-neutral {
+  color: #475569;
+  background-color: #F1F5F9;
+  border-color: #E2E8F0;
+}
+
+/* ACCIDENT / DAMAGE DISCLOSURE CARD */
+.salvex-damage-disclosure-card {
+  background-color: #FEF2F2;
+  border: 1px solid #FEE2E2;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.damage-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cond-damage-status {
+  background-color: #FEE2E2 !important;
+  color: #DC2626 !important;
+  border: 1px solid #FECACA !important;
+  font-weight: 700;
+}
+
+.damage-overall-status {
+  font-size: 11.5px;
+  color: #475569;
+}
+
+.damage-overall-status strong {
+  color: #16A344;
+}
+
+.damage-desc-text {
+  font-size: 12px;
+  line-height: 18px;
+  color: #475569;
+  margin: 0 0 8px 0;
+}
+
+.btn-condition-report-action {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #DC2626;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-condition-report-action:hover {
+  text-decoration: underline;
+}
+
+/* Short Vehicle Description (2–3 lines only) */
+.short-description-block {
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  margin-top: auto;
+}
+
+.desc-text {
+  font-size: 12.5px;
+  line-height: 19px;
+  color: #475569;
+  margin: 0 0 4px 0;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #DC2626;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   COLUMN 3: LIVE AUCTION PANEL (RIGHT 27% - STICKY)
+   Primary conversion area
+   -------------------------------------------------------------------------- */
+.bidding-column {
+  position: relative;
+}
+
+.bidding-panel-card {
+  position: sticky;
+  top: 88px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header: LIVE AUCTION + Countdown */
+.panel-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.panel-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #DC2626;
+}
+
+.pulse-red-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #DC2626;
+  animation: pulse-dot 1.2s infinite;
+}
+
+.panel-countdown-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 11px;
+}
+
+.countdown-lbl {
+  color: #64748B;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.countdown-val {
+  font-family: monospace;
+  font-weight: 700;
+  color: #0B1220;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+/* Current Bid Display */
+.panel-current-bid-box {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.bid-box-title {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #64748B;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.bid-box-main-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.bid-price-large {
+  font-size: 24px;
+  font-weight: 800;
+  color: #DC2626;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.bid-count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* 3 Clean Parameters List */
+.panel-parameters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+  font-size: 12px;
+}
+
+.param-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.param-label {
+  color: #64748B;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.param-value {
+  color: #0B1220;
+  font-weight: 600;
+}
+
+.highlight-param .param-value {
+  color: #0B1220;
+  font-weight: 700;
+}
+
+/* Bid Amount Input + 3 Quick Increments (+₹1L, +₹2L, +₹5L) */
+.panel-bid-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bid-field-box {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1.5px solid #0B1220;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 44px;
+}
+
+.bid-field-box:focus-within {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
+
+.currency-prefix {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B1220;
+  padding-left: 12px;
+}
+
+.bid-input-elem {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B1220;
+  padding: 0 10px;
+}
+
+/* Auction Start & End Timing */
+.auction-timing-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  font-size: 11px;
+}
+
+.timing-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.timing-col.text-right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.timing-label {
+  color: #64748B;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.timing-value {
+  color: #0B1220;
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+/* Bid Validation Notice */
+.bid-validation-notice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #475569;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  padding: 5px 8px;
+}
+
+.val-icon {
+  color: #3B82F6;
+  flex-shrink: 0;
+}
+
+/* Quick Increments Trio: +₹1L, +₹2L, +₹5L */
+.quick-inc-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.btn-inc-pill {
+  height: 30px;
+  background-color: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-inc-pill:hover {
+  background-color: #0B1220;
+  color: #FFFFFF;
+  border-color: #0B1220;
+}
+
+/* Primary CTA: PLACE BID → in #DC2626 */
+.btn-primary-place-bid {
+  width: 100%;
+  height: 48px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.3);
+  transition: all 0.15s ease;
+}
+
+.btn-primary-place-bid:hover {
+  background-color: #B91C1C;
+  transform: translateY(-1px);
+}
+
+.panel-terms-micro {
+  font-size: 10px;
+  line-height: 14px;
+  color: #94A3B8;
+  text-align: center;
+  margin: 6px 0 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   03 INFORMATION TABS BAR (Compact One-Tab System)
+   -------------------------------------------------------------------------- */
+.info-tabs-bar-section {
+  background-color: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.tabs-bar-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs-buttons-row::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-switch-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 13px 2px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #64748B;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.tab-switch-btn:hover {
+  color: #0B1220;
+}
+
+.tab-btn-active {
+  color: #0B1220 !important;
+  font-weight: 700;
+}
+
+.tab-red-bar {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: #DC2626;
+  border-radius: 2px 2px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   04 ACTIVE TAB CONTENT ONLY (Progressive Disclosure)
+   -------------------------------------------------------------------------- */
+.tab-pane-container-section {
+  padding: 20px 0 24px 0;
+}
+
+.tab-pane-box {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.tab-pane-inner {
+  animation: tab-fade-in 0.15s ease;
+}
+
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tab 1: Vehicle Details 2-Column Grid */
+.compact-2col-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 32px;
+}
+
+.spec-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 13px;
+}
+
+.spec-k {
+  color: #64748B;
+  font-weight: 500;
+}
+
+.spec-v {
+  color: #0B1220;
+  font-weight: 600;
+}
+
+/* Tab 2: Inspection */
+.inspection-top-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.insp-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.insp-status-tag {
+  color: #16A344;
+}
+
+.insp-score-tag {
+  color: #0B1220;
+}
+
+.btn-text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #DC2626;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-text-action:hover {
+  text-decoration: underline;
+}
+
+.inspection-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.insp-compact-cell {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.insp-cell-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.cell-cat {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+.pill-pass {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #16A344;
+  background-color: #DCFCE7;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pill-good {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0284C7;
+  background-color: #E0F2FE;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cell-note {
+  font-size: 11.5px;
+  line-height: 16px;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Tab 3: Auction Parameters Grid */
+.auction-parameters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 32px;
+}
+
+.auction-field-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 13px;
+}
+
+.af-label {
+  color: #64748B;
+  font-weight: 500;
+}
+
+.af-val {
+  color: #0B1220;
+  font-weight: 600;
+}
+
+.text-live-red {
+  color: #DC2626 !important;
+  font-weight: 700;
+}
+
+/* Tab 4: Documents */
+.documents-compact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doc-compact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+}
+
+.doc-info-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-type-icon {
+  color: #3B82F6;
+}
+
+.doc-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0B1220;
+}
+
+.doc-info-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-avail-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #2563EB;
+  background-color: #EFF6FF;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.btn-view-doc-icon {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-view-doc-icon:hover {
+  background-color: #0B1220;
+  color: #FFFFFF;
+}
+
+/* Tab 5: Bid History Table */
+.compact-bids-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.compact-bids-table th {
+  background-color: #F8FAFC;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.compact-bids-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.top-bid-row {
+  background-color: #FEF2F2 !important;
+}
+
+.bidder-code {
+  font-family: monospace;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+.highest-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #DC2626;
+  background-color: #FEE2E2;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+
+.bid-time {
+  color: #64748B;
+  font-size: 12px;
+}
+
+.bids-pane-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Tab 6: Location */
+.location-compact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.loc-city {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B1220;
+  margin: 0 0 8px 0;
+}
+
+.loc-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12.5px;
+  margin-bottom: 8px;
+}
+
+.loc-lbl {
+  color: #64748B;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.loc-val {
+  color: #334155;
+}
+
+.loc-compact-map-graphic {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-height: 260px;
+  background-color: #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.map-chip-loc {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(7, 11, 20, 0.90);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   05 COMPACT AUCTION RULES BLOCK
+   -------------------------------------------------------------------------- */
+.compact-rules-strip-section {
+  padding-bottom: 24px;
+}
+
+.compact-rules-strip {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.rules-strip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rules-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+.btn-rules-link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #DC2626;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-rules-link:hover {
+  text-decoration: underline;
+}
+
+.rules-micro-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.rule-micro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+}
+
+.rm-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.rm-val {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+/* --------------------------------------------------------------------------
+   06 SIMILAR VEHICLES (3 Compact Cards - Same as Homepage)
+   -------------------------------------------------------------------------- */
+.compact-similar-section {
+  padding-bottom: 48px;
+}
+
+.similar-section-header {
+  margin-bottom: 16px;
+}
+
+.similar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0B1220;
+  margin: 0;
+}
+
+.similar-title-accent {
+  width: 28px;
+  height: 2.5px;
+  background-color: #DC2626;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   07 MOBILE STICKY BID BAR
+   -------------------------------------------------------------------------- */
+.mobile-sticky-bid-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-bid-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E2E8F0;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 16px;
+    z-index: 1000;
+  }
+
+  .mobile-bid-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .mobile-bar-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mb-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748B;
+    text-transform: uppercase;
+  }
+
+  .mb-amount {
+    font-size: 18px;
+    font-weight: 800;
+    color: #DC2626;
+    line-height: 1.1;
+  }
+
+  .mobile-bar-bid-btn {
+    height: 42px;
+    padding: 0 20px;
+    background-color: #DC2626;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Desktop, Tablet, Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .primary-vehicle-3col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-column {
+    grid-column: span 2;
+  }
+
+  .rules-micro-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .inspection-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .primary-vehicle-3col {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-column {
+    grid-column: span 1;
+  }
+
+  .bidding-panel-card {
+    position: static;
+  }
+
+  .compact-2col-specs-grid,
+  .auction-parameters-grid,
+  .location-compact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-micro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inspection-compact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salvex-vehicle-minimal-page,
+  .salvex-marketplace-page {
+    padding-top: 84px;
+    padding-bottom: 60px; /* Room for sticky mobile bid bar */
+  }
+}
+
+/* Toast */
+.minimal-floating-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0B1220;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border-left: 3px solid #16A344;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 3000;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.toast-close-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 0;
+}

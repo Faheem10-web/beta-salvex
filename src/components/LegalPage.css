@@ -1,0 +1,267 @@
+/* ==========================================================================
+   SALVEX AUCTION - LEGAL & REGULATORY FRAMEWORK PAGE
+   Clean corporate light theme with navy typography, soft borders, and sidebar
+   ========================================================================== */
+
+.salvex-legal-page {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  color: #0F172A;
+}
+
+/* --------------------------------------------------------------------------
+   01. BODY & 2-COLUMN LAYOUT (With clearance for fixed navbar)
+   -------------------------------------------------------------------------- */
+.legal-body-section {
+  padding: 140px 0 80px;
+  background-color: #F8FAFC;
+}
+
+.legal-layout-container {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   03. SIDEBAR NAVIGATION
+   -------------------------------------------------------------------------- */
+.legal-sidebar-nav {
+  position: sticky;
+  top: 130px;
+}
+
+.legal-nav-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.nav-group-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+  margin-bottom: 12px;
+  padding-left: 6px;
+}
+
+.legal-tab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legal-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.legal-tab-btn svg {
+  color: #64748B;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.legal-tab-btn:hover {
+  background: #F1F5F9;
+  color: #0B1220;
+}
+
+.legal-tab-btn:hover svg {
+  color: #0B1220;
+}
+
+.legal-tab-btn.tab-btn-active {
+  background: #EFF6FF;
+  color: #2563EB;
+  border-color: #BFDBFE;
+  box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08);
+  font-weight: 700;
+}
+
+.legal-tab-btn.tab-btn-active svg {
+  color: #2563EB;
+}
+
+.legal-actions-box {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.legal-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.legal-action-btn:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+  border-color: #94A3B8;
+}
+
+/* --------------------------------------------------------------------------
+   04. DOCUMENT CONTENT CARD
+   -------------------------------------------------------------------------- */
+.legal-content-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 44px clamp(24px, 4vw, 52px);
+  box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.05);
+}
+
+.document-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 30px;
+}
+
+.document-header h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.doc-version-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.doc-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+  margin: 0 0 36px 0;
+  background: #F8FAFC;
+  border-left: 3px solid #2563EB;
+  padding: 18px 22px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #E2E8F0;
+  border-left-width: 3.5px;
+  border-left-color: #2563EB;
+}
+
+.doc-section {
+  margin-bottom: 34px;
+}
+
+.section-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0B1220;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.section-paragraph {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #475569;
+  margin: 0;
+}
+
+.doc-signoff {
+  margin-top: 44px;
+  padding-top: 26px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.doc-signoff p {
+  margin: 0 0 4px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #0B1220;
+}
+
+.doc-signoff .signoff-note {
+  font-size: 13px;
+  color: #64748B;
+}
+
+/* --------------------------------------------------------------------------
+   05. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .legal-layout-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .legal-sidebar-nav {
+    position: static;
+  }
+  .legal-tab-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .legal-hero {
+    padding-top: 120px;
+    padding-bottom: 36px;
+  }
+  .legal-tab-list {
+    grid-template-columns: 1fr;
+  }
+  .legal-content-card {
+    padding: 24px 20px;
+  }
+  .document-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

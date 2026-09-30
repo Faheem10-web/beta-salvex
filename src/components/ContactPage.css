@@ -1,0 +1,738 @@
+/* ==========================================================================
+   SALVEX AUCTION - CONTACT PAGE (EXACT REFERENCE SPECIFICATION)
+   Design System:
+   - Hero: Dark Navy (#070B14 / #0B1220) with Cinematic Car Visual
+   - Content Body: Clean modern light canvas (#F8FAFC)
+   - Brand Red: #DC2626 / #E11D48
+   - Clean White Surface Cards: #FFFFFF with border #E2E8F0
+   - Text: #0F172A (heading), #475569 (body), #94A3B8 (muted)
+   ========================================================================== */
+
+.salvex-contact-page-v2 {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #0F172A;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   01. HERO SECTION (Dark automotive studio with car visual)
+   -------------------------------------------------------------------------- */
+.contact-v2-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #070B14;
+  padding: 140px 0 96px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+}
+
+.contact-v2-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-v2-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  display: block;
+  filter: contrast(1.1) brightness(0.85);
+}
+
+.contact-v2-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.78) 46%, rgba(7, 11, 20, 0.35) 100%),
+              radial-gradient(circle at 80% 35%, rgba(220, 38, 38, 0.22) 0%, transparent 65%);
+}
+
+.contact-v2-hero-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+}
+
+.contact-v2-hero-content {
+  max-width: 640px;
+  z-index: 3;
+}
+
+/* Breadcrumb */
+.contact-v2-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #94A3B8;
+  margin-bottom: 16px;
+}
+
+.breadcrumb-link {
+  color: #94A3B8;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: #FFFFFF;
+}
+
+.breadcrumb-sep {
+  color: #64748B;
+  font-size: 12px;
+}
+
+.breadcrumb-current {
+  color: #F8FAFC;
+  font-weight: 600;
+}
+
+/* Hero Title */
+.contact-v2-title {
+  font-size: clamp(38px, 4.5vw, 54px);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 16px;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.contact-v2-title-red {
+  color: #DC2626;
+}
+
+.contact-v2-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #94A3B8;
+  margin: 0;
+  max-width: 540px;
+}
+
+/* --------------------------------------------------------------------------
+   02. FLOATING OVERLAP CONTACT CARDS (4-COL ROW)
+   -------------------------------------------------------------------------- */
+.contact-v2-overlap-section {
+  position: relative;
+  z-index: 10;
+  margin-top: -46px;
+  padding: 0 32px;
+}
+
+.contact-v2-overlap-container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.contact-v2-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.contact-channel-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contact-channel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+  border-color: #CBD5E1;
+}
+
+.channel-card-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Icon Box Colors matching reference */
+.channel-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.icon-box-red {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+}
+
+.icon-box-green {
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+}
+
+.icon-box-blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+}
+
+.icon-box-navy {
+  background: linear-gradient(135deg, #0F172A 0%, #070B14 100%);
+}
+
+.channel-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.channel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 2px;
+}
+
+.channel-sub {
+  font-size: 12px;
+  color: #64748B;
+  margin: 0 0 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.channel-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.channel-chevron {
+  color: #94A3B8;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-channel-card:hover .channel-chevron {
+  color: #DC2626;
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   03. MAIN BODY SECTION (FORM + MAP CARDS)
+   -------------------------------------------------------------------------- */
+.contact-v2-main-section {
+  padding: 36px 32px 72px;
+}
+
+.contact-v2-main-container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.contact-v2-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* LEFT: SEND US A MESSAGE FORM CARD */
+.contact-v2-form-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 34px 32px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 6px;
+  letter-spacing: -0.015em;
+}
+
+.form-card-subtitle {
+  font-size: 14px;
+  color: #64748B;
+  margin: 0 0 26px;
+}
+
+.contact-v2-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-2col-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label-v2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.label-required {
+  color: #DC2626;
+  margin-left: 2px;
+}
+
+.input-with-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-icon {
+  position: absolute;
+  left: 14px;
+  color: #94A3B8;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.form-input-v2 {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px 0 42px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0F172A;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input-v2::placeholder {
+  color: #94A3B8;
+}
+
+.form-input-v2:focus {
+  background: #FFFFFF;
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+/* Custom Dropdown */
+.select-with-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-select-v2 {
+  width: 100%;
+  height: 46px;
+  padding: 0 38px 0 14px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0F172A;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  appearance: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.form-select-v2:focus {
+  background: #FFFFFF;
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.select-chevron-icon {
+  position: absolute;
+  right: 14px;
+  color: #64748B;
+  pointer-events: none;
+}
+
+/* Textarea */
+.textarea-with-icon-wrap {
+  position: relative;
+}
+
+.textarea-prefix-icon {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.form-textarea-v2 {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 14px 12px 42px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0F172A;
+  outline: none;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-textarea-v2::placeholder {
+  color: #94A3B8;
+}
+
+.form-textarea-v2:focus {
+  background: #FFFFFF;
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+/* Red Submit Button matching reference */
+.btn-send-enquiry-v2 {
+  width: 100%;
+  height: 50px;
+  background: #DC2626;
+  background: linear-gradient(135deg, #DC2626 0%, #C81E1E 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  margin-top: 6px;
+}
+
+.btn-send-enquiry-v2:hover:not(:disabled) {
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.45);
+}
+
+.btn-send-enquiry-v2:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-left-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Success state inside card */
+.form-card-success-v2 {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: auto 0;
+}
+
+.form-card-success-v2 h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #166534;
+  margin: 0;
+}
+
+.form-card-success-v2 p {
+  font-size: 14px;
+  color: #15803D;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btn-reset-form-v2 {
+  background: #16A34A;
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-reset-form-v2:hover {
+  background: #15803D;
+}
+
+/* RIGHT: MAP & OFFICE DETAILS CARD */
+.contact-v2-office-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Map Frame */
+.map-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  background-color: #E2E8F0;
+}
+
+.map-svg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Centered Map Card Tooltip matching reference */
+.map-marker-pin-wrap {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.map-popup-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.popup-red-pin {
+  color: #DC2626;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.popup-info h5 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 3px;
+}
+
+.popup-info p {
+  font-size: 11px;
+  color: #64748B;
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+
+.popup-dir-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #DC2626;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.popup-dir-link:hover {
+  color: #B91C1C;
+  text-decoration: underline;
+}
+
+.map-expand-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 32px;
+  height: 32px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.map-expand-btn:hover {
+  background: #F8FAFC;
+  color: #0F172A;
+}
+
+/* Office Details Text & Hours below map */
+.office-details-box {
+  margin-top: 20px;
+}
+
+.office-heading {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px;
+}
+
+.office-address-p {
+  font-size: 13px;
+  color: #64748B;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.office-hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.office-hour-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hour-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #F1F5F9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hour-content h6 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 2px;
+}
+
+.hour-content p {
+  font-size: 12px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .contact-v2-channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-v2-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-v2-hero-car-wrap {
+    display: none;
+  }
+
+  .contact-v2-hero {
+    padding: 120px 0 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-v2-channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-2col-row {
+    grid-template-columns: 1fr;
+  }
+
+  .office-hours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-v2-overlap-section {
+    padding: 0 16px;
+    margin-top: -30px;
+  }
+
+  .contact-v2-main-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .contact-v2-form-card,
+  .contact-v2-office-card {
+    padding: 24px 18px;
+  }
+}

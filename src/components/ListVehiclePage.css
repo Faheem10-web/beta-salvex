@@ -1,0 +1,580 @@
+/* ==========================================================================
+   LIST VEHICLE PAGE (CONSIGNOR ONBOARDING PORTAL) STYLES
+   ========================================================================== */
+
+.salvex-list-vehicle-page {
+  width: 100%;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+/* 01 HERO SECTION */
+.list-hero {
+  background-color: #070B14;
+  color: #FFFFFF;
+  padding: 130px 0 50px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+  position: relative;
+}
+
+.list-hero-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.list-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(220, 38, 38, 0.14);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  color: #EF4444;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+}
+
+.list-title {
+  font-size: 34px;
+  line-height: 42px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.list-subtitle {
+  font-size: 14.5px;
+  line-height: 24px;
+  color: #94A3B8;
+  max-width: 680px;
+  margin-bottom: 32px;
+}
+
+/* 02 STEPPER PROGRESS BAR */
+.seller-stepper-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  border-radius: 14px;
+  padding: 16px 20px;
+  backdrop-filter: blur(8px);
+}
+
+.stepper-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.55;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.stepper-step.step-current {
+  opacity: 1;
+}
+
+.stepper-step.step-passed {
+  opacity: 0.9;
+}
+
+.stepper-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1E293B;
+  border: 2px solid #334155;
+  color: #94A3B8;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.stepper-step.step-current .stepper-circle {
+  background: #DC2626;
+  border-color: #EF4444;
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(220, 38, 38, 0.45);
+}
+
+.stepper-step.step-passed .stepper-circle {
+  background: #16A34A;
+  border-color: #22C55E;
+  color: #FFFFFF;
+}
+
+.stepper-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94A3B8;
+  white-space: nowrap;
+}
+
+.stepper-step.step-current .stepper-label {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.stepper-step.step-passed .stepper-label {
+  color: #E2E8F0;
+}
+
+/* 03 FORM SECTION & CONTAINER */
+.list-form-section {
+  padding: 40px 0 80px;
+}
+
+.form-card-container {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 20px -2px rgba(11, 18, 32, 0.05);
+}
+
+/* Step Pane Header */
+.pane-header {
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.pane-header h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0 0 6px 0;
+}
+
+.pane-header p {
+  font-size: 14px;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Form Grids */
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  display: block;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #0B1220;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field select {
+  cursor: pointer;
+}
+
+.form-field textarea {
+  height: auto;
+  padding: 10px 14px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.field-hint {
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* 04 PHOTO UPLOAD SLOTS (STEP 3) */
+.photo-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.photo-upload-slot {
+  border: 2px dashed #CBD5E1;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #F8FAFC;
+  transition: all 0.2s ease;
+}
+
+.photo-upload-slot.slot-uploaded {
+  border-color: #86EFAC;
+  background-color: #F0FDF4;
+}
+
+.slot-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+.slot-hint {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #16A34A;
+}
+
+/* Document Uploads */
+.doc-uploads-container {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.doc-uploads-container h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0B1220;
+  margin: 0 0 14px 0;
+}
+
+.doc-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  gap: 12px;
+}
+
+.doc-row.doc-ready {
+  border-color: #BBF7D0;
+  background-color: #F0FDF4;
+}
+
+.doc-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #16A34A;
+  background-color: #DCFCE7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.doc-tag-opt {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  background-color: #F1F5F9;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* 05 REVIEW SUMMARY (STEP 5) */
+.review-summary-box {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 18px;
+}
+
+.rev-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rev-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rev-val {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+.rev-val.text-red {
+  color: #DC2626;
+  font-size: 17px;
+}
+
+.rev-item-full {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.rev-item-full:last-child {
+  margin-bottom: 0;
+}
+
+.rev-item-full p {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.terms-checkbox-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 8px;
+}
+
+.terms-checkbox-wrap input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #DC2626;
+  flex-shrink: 0;
+}
+
+.terms-checkbox-wrap label {
+  font-size: 13px;
+  color: #92400E;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* 06 BUTTONS & STEPPER ACTIONS */
+.stepper-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.stepper-right-btn {
+  margin-left: auto;
+}
+
+.salvex-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+}
+
+.salvex-btn-primary {
+  background-color: #DC2626;
+  color: #FFFFFF;
+}
+
+.salvex-btn-primary:hover {
+  background-color: #B91C1C;
+}
+
+.salvex-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.salvex-btn-outline {
+  background-color: #FFFFFF;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+}
+
+.salvex-btn-outline:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+/* 07 SUBMISSION SUCCESS SCREEN */
+.submission-success-card {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #DCFCE7;
+  color: #16A34A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.submission-success-card h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0 0 10px 0;
+}
+
+.success-lead {
+  font-size: 15px;
+  color: #475569;
+  max-width: 540px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.success-status-box {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px 24px;
+  max-width: 580px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.status-chip.under-review {
+  display: inline-block;
+  background-color: #FEF3C7;
+  color: #B45309;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.success-status-box p {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.success-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 08 RESPONSIVE BREAKPOINTS */
+@media (max-width: 960px) {
+  .form-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seller-stepper-wrap {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .list-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .form-card-container {
+    padding: 24px 20px;
+  }
+
+  .form-grid-3,
+  .form-grid-2,
+  .photo-slots-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper-label {
+    display: none;
+  }
+}
