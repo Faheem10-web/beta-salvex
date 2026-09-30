@@ -122,10 +122,13 @@
   background-color: #F8FAFC;
 }
 
+.salvex-how-it-works-page .steps-journey-container,
 .steps-journey-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .step-journey-card {

@@ -866,11 +866,18 @@
 }
 
 .steps-journey-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1280px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .steps-journey-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .step-journey-card {

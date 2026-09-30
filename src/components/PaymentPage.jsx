@@ -14,6 +14,7 @@ import {
   Truck
 } from 'lucide-react';
 import { wonAuctionsData } from '../data/mockVehicles';
+import './PaymentPage.css';
 
 export default function PaymentPage({
   lotId = 'won-101',
