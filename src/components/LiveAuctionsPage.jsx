@@ -81,9 +81,20 @@ export default function LiveAuctionsPage({
 
   return (
     <div className="salvex-live-auctions-page">
-      {/* 01 COMPACT DARK NAVY HERO */}
+      {/* 01 COMPACT DARK NAVY HERO WITH PREMIUM BACKGROUND IMAGE */}
       <section className="live-auctions-hero">
-        <div className="salvex-container">
+        <div className="live-hero-backdrop" aria-hidden="true">
+          <img
+            src="https://i.pinimg.com/736x/77/eb/49/77eb4980f993e40c94d84a56cd0caf91.jpg"
+            alt="Live Vehicle Auctions Fleet Studio"
+            className="live-hero-bg-img"
+          />
+          <div className="live-hero-overlay" />
+          <div className="live-hero-top-vignette" />
+          <div className="live-hero-bottom-vignette" />
+        </div>
+
+        <div className="salvex-container live-hero-content">
           <div className="live-hero-inner">
             <div className="live-hero-left">
               <div className="live-realtime-pill">

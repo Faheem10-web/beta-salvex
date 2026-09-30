@@ -120,7 +120,9 @@ export default function App() {
     }
 
     if (route === 'register') {
-      setIsRegisterOpen(true);
+      setCurrentRoute('login');
+      setActiveSection('login');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
@@ -225,8 +227,8 @@ export default function App() {
               auctions={upcomingAuctionsData}
               onViewAuction={() => navigateTo('upcoming-auctions')}
               onRegisterInterest={(auc) => {
-                showToast(`Registered interest for ${auc.title}`);
-                setIsRegisterOpen(true);
+                showToast(`Sign in or register to bid on ${auc.title}`);
+                navigateTo('login');
               }}
             />
 
@@ -242,7 +244,7 @@ export default function App() {
             <WhySalvex features={whySalvexFeatures} />
             <AboutSection onAboutClick={() => navigateTo('about')} />
             <BuyerCta
-              onRegisterClick={() => setIsRegisterOpen(true)}
+              onRegisterClick={() => navigateTo('login')}
               onExploreClick={() => navigateTo('vehicles')}
             />
           </div>
@@ -267,7 +269,7 @@ export default function App() {
             onNavigateHome={() => navigateTo('home')}
             onNavigateLiveAuctions={() => navigateTo('live-auctions')}
             onOpenBidModal={(v) => setSelectedBidVehicle(v)}
-            onOpenRegisterModal={() => setIsRegisterOpen(true)}
+            onOpenRegisterModal={() => navigateTo('login')}
             savedIds={savedIds}
             onToggleSave={handleToggleSave}
             onViewVehicleDetails={(v) => handleViewVehicleDetails(v)}
@@ -313,14 +315,14 @@ export default function App() {
         {/* ROUTE 07: HOW IT WORKS (/how-it-works) */}
         {currentRoute === 'how-it-works' && (
           <HowItWorksPage
-            onRegisterClick={() => setIsRegisterOpen(true)}
+            onRegisterClick={() => navigateTo('login')}
             onExploreClick={() => navigateTo('vehicles')}
           />
         )}
 
         {/* ROUTE 08: BIDDING RULES (/bidding-rules) */}
         {currentRoute === 'bidding-rules' && (
-          <BiddingRulesPage onRegisterClick={() => setIsRegisterOpen(true)} />
+          <BiddingRulesPage onRegisterClick={() => navigateTo('login')} />
         )}
 
         {/* ROUTE 10: LOGIN (/login) */}
@@ -331,7 +333,7 @@ export default function App() {
               else if (role === 'seller') navigateTo('seller-dashboard');
               else navigateTo('dashboard');
             }}
-            onNavigateRegister={() => setIsRegisterOpen(true)}
+            onNavigateRegister={() => navigateTo('login')}
             onShowToast={showToast}
           />
         )}
@@ -349,7 +351,7 @@ export default function App() {
         {currentRoute === 'about' && (
           <AboutPage
             onExploreClick={() => navigateTo('vehicles')}
-            onRegisterClick={() => setIsRegisterOpen(true)}
+            onRegisterClick={() => navigateTo('login')}
           />
         )}
 
@@ -358,7 +360,7 @@ export default function App() {
           <ContactPage
             onShowToast={showToast}
             onNavigate={(route) => navigateTo(route)}
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={() => navigateTo('login')}
           />
         )}
 
@@ -366,7 +368,7 @@ export default function App() {
         {currentRoute === 'faq' && (
           <FaqPage
             onContactClick={() => navigateTo('contact')}
-            onRegisterClick={() => setIsRegisterOpen(true)}
+            onRegisterClick={() => navigateTo('login')}
           />
         )}
 
