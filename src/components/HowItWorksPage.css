@@ -8,6 +8,7 @@
   color: #0F172A;
   background-color: #F8FAFC;
   box-sizing: border-box;
+  padding-top: 130px;
 }
 
 .salvex-how-it-works-page .salvex-container {
@@ -290,12 +291,11 @@
 }
 
 @media (max-width: 768px) {
+  .salvex-how-it-works-page {
+    padding-top: 110px;
+  }
   .salvex-how-it-works-page .salvex-container {
     padding: 0 20px;
-  }
-  .how-hero {
-    padding-top: 120px;
-    padding-bottom: 50px;
   }
   .steps-journey-container {
     grid-template-columns: 1fr;

@@ -3864,3 +3864,42 @@ a.footer-contact-item:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Mobile Screens (415px down to 320px) */
+@media (max-width: 480px) {
+  .hero-main-title {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+  .hero-sub-title {
+    font-size: 19px !important;
+    line-height: 26px !important;
+  }
+  .hero-description {
+    font-size: 14px !important;
+    line-height: 21px !important;
+    margin-bottom: 24px;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .compact-stats-bar {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+}
+
+/* Ultra-compact Mobile (360px down to 320px) */
+@media (max-width: 360px) {
+  .hero-main-title {
+    font-size: 23px !important;
+    line-height: 30px !important;
+  }
+  .hero-sub-title {
+    font-size: 16px !important;
+    line-height: 23px !important;
+  }
+}
+

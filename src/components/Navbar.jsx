@@ -67,6 +67,8 @@ export default function Navbar({
   ];
 
   const handleLinkClick = (id) => {
+    setIsScrolled(false);
+    setIsVisible(true);
     setMobileMenuOpen(false);
     if (onNavigate) {
       onNavigate(id);

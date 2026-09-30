@@ -7,7 +7,6 @@ import {
   Trophy,
   CreditCard,
   Truck,
-  ArrowRight,
   FileCheck2,
   Lock,
   Clock,
@@ -15,7 +14,7 @@ import {
 } from 'lucide-react';
 import './HowItWorksPage.css';
 
-export default function HowItWorksPage({ onRegisterClick, onExploreClick }) {
+export default function HowItWorksPage({ _onRegisterClick, _onExploreClick }) {
   const steps = [
     {
       num: '01',
@@ -98,39 +97,7 @@ export default function HowItWorksPage({ onRegisterClick, onExploreClick }) {
 
   return (
     <div className="salvex-how-it-works-page">
-      {/* 01 HERO */}
-      <section className="how-hero">
-        <div className="salvex-container">
-          <div className="how-hero-inner">
-            <span className="how-tagline">TRANSPARENT 7-STEP AUCTION LIFECYCLE</span>
-            <h1 className="how-title">How Salvex Auction Works</h1>
-            <p className="how-desc">
-              From discovering certified salvage and repossessed vehicles to winning, escrow settlement, and regional yard lifting — our end-to-end process is built for commercial speed, legal transparency, and total trust.
-            </p>
-
-            <div className="how-hero-actions">
-              <button
-                type="button"
-                className="salvex-btn salvex-btn-primary"
-                onClick={onRegisterClick}
-              >
-                <span>Register as Bidder</span>
-                <ArrowRight size={16} />
-              </button>
-
-              <button
-                type="button"
-                className="salvex-btn salvex-btn-outline-white"
-                onClick={onExploreClick}
-              >
-                <span>Explore Live Inventory</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 02 VISUAL 7-STEP TIMELINE */}
+      {/* 01 VISUAL 7-STEP TIMELINE */}
       <section className="how-steps-section">
         <div className="salvex-container">
           <div className="steps-journey-container">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SearchPanel from './components/SearchPanel';
@@ -55,6 +55,7 @@ import {
 import './App.css';
 import './components/SalvexAppComponents.css';
 import { useScrollAnimations } from './hooks/useScrollAnimations';
+import { resetScrollToTop } from './utils/scrollHelper';
 
 export default function App() {
   const [liveVehicles, setLiveVehicles] = useState(liveVehiclesData);
@@ -64,6 +65,7 @@ export default function App() {
   // Supported routes: 'home' | 'vehicles' | 'vehicle-details' | 'live-auctions' | 'upcoming-auctions' | 'recently-added' | 'how-it-works' | 'bidding-rules' | 'about' | 'contact' | 'faq' | 'privacy-policy' | 'terms-and-conditions' | 'refund-policy' | 'auction-policy' | 'login' | 'register' | 'list-your-vehicle' | 'dashboard' | 'payment' | 'lifting' | 'seller-dashboard' | 'admin'
   const [currentRoute, setCurrentRoute] = useState('home');
   const [activeSection, setActiveSection] = useState('home');
+  const [navKey, setNavKey] = useState(0);
 
   // GSAP ScrollTrigger smooth premium scroll enhancements
   useScrollAnimations(currentRoute);
@@ -74,6 +76,12 @@ export default function App() {
 
   // Workflow context params (e.g. which lot is being settled or lifted)
   const [activeLotId, setActiveLotId] = useState('won-101');
+
+  // Global Route Navigation Scroll-to-Top:
+  // Automatically reset the scroll position to the very top (0, 0) on every route/page navigation
+  useLayoutEffect(() => {
+    resetScrollToTop();
+  }, [currentRoute, activeVehicle?.id, activeLotId, navKey]);
 
   // Search Filter state for home quick panel
   const [searchTab, setSearchTab] = useState('search');
@@ -110,8 +118,9 @@ export default function App() {
       setActiveLotId(params.lotId);
     }
 
-    // Scroll to top upon page navigation
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Reset scroll position immediately on navigation
+    resetScrollToTop();
+    setNavKey((k) => k + 1);
 
     if (route === 'home') {
       setCurrentRoute('home');
@@ -122,7 +131,6 @@ export default function App() {
     if (route === 'register') {
       setCurrentRoute('login');
       setActiveSection('login');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
@@ -379,6 +387,7 @@ export default function App() {
           currentRoute === 'auction-policy' ||
           currentRoute === 'legal') && (
           <LegalPage
+            key={currentRoute}
             initialTab={
               currentRoute === 'privacy-policy'
                 ? 'privacy'
@@ -388,6 +397,17 @@ export default function App() {
                 ? 'auction'
                 : 'terms'
             }
+          />
+        )}
+
+        {/* ROUTE 20: BIDDER DASHBOARD (/dashboard) */}
+        {currentRoute === 'dashboard' && (
+          <BidderDashboard
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateVehicleDetails={(v) => handleViewVehicleDetails(v)}
+            onNavigatePayment={(lotId) => navigateTo('payment', { lotId })}
+            onNavigateLifting={(lotId) => navigateTo('lifting', { lotId })}
+            onShowToast={showToast}
           />
         )}
 
