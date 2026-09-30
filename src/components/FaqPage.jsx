@@ -8,6 +8,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { faqData } from '../data/mockVehicles';
+import './FaqPage.css';
 
 export default function FaqPage({ onContactClick, onRegisterClick }) {
   const [searchQuery, setSearchQuery] = useState('');
