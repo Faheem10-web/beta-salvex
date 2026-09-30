@@ -54,6 +54,7 @@ import {
 
 import './App.css';
 import './components/SalvexAppComponents.css';
+import { useScrollAnimations } from './hooks/useScrollAnimations';
 
 export default function App() {
   const [liveVehicles, setLiveVehicles] = useState(liveVehiclesData);
@@ -63,6 +64,9 @@ export default function App() {
   // Supported routes: 'home' | 'vehicles' | 'vehicle-details' | 'live-auctions' | 'upcoming-auctions' | 'recently-added' | 'how-it-works' | 'bidding-rules' | 'about' | 'contact' | 'faq' | 'privacy-policy' | 'terms-and-conditions' | 'refund-policy' | 'auction-policy' | 'login' | 'register' | 'list-your-vehicle' | 'dashboard' | 'payment' | 'lifting' | 'seller-dashboard' | 'admin'
   const [currentRoute, setCurrentRoute] = useState('home');
   const [activeSection, setActiveSection] = useState('home');
+
+  // GSAP ScrollTrigger smooth premium scroll enhancements
+  useScrollAnimations(currentRoute);
 
   // Currently viewed vehicle for /vehicles/:id details page
   const defaultVehicle = liveVehicles.find((v) => v.id === 'salvex-103') || liveVehicles[0];

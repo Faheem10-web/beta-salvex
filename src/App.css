@@ -383,7 +383,10 @@
 
 .hero-backdrop {
   position: absolute;
-  inset: 0;
+  top: -40px;
+  bottom: -40px;
+  left: 0;
+  right: 0;
   z-index: 1;
   pointer-events: none;
 }
@@ -394,6 +397,7 @@
   object-fit: cover;
   object-position: center 36%;
   filter: contrast(1.05) brightness(0.92);
+  will-change: transform;
 }
 
 .hero-dark-overlay {
@@ -438,6 +442,7 @@
   max-width: var(--max-width-page);
   margin: 0 auto;
   padding: 0 32px;
+  will-change: transform, opacity;
 }
 
 .hero-top-row {
