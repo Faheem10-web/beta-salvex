@@ -497,38 +497,33 @@ export const platformStats = [
 export const howItWorksSteps = [
   {
     number: '01',
-    title: 'Register',
-    description: 'Create your bidder account.'
+    title: 'Register & Verify',
+    description: 'Create account and complete quick online KYC verification.'
   },
   {
     number: '02',
-    title: 'Verify',
-    description: 'Complete bidder verification and required KYC.'
+    title: 'Discover & Inspect',
+    description: 'Browse verified lots with comprehensive 150-point diagnostic reports.'
   },
   {
     number: '03',
-    title: 'Find Vehicle',
-    description: 'Browse live, upcoming and recently added vehicles.'
+    title: 'Place Your Bid',
+    description: 'Participate in live countdown auctions with real-time bidding controls.'
   },
   {
     number: '04',
-    title: 'Bid',
-    description: 'Review vehicle details and place your bid during the auction.'
+    title: 'Win the Auction',
+    description: 'Secure highest bid victory with instant digital allotment confirmation.'
   },
   {
     number: '05',
-    title: 'Win',
-    description: 'If your bid is the winning valid bid, proceed according to the auction terms.'
+    title: 'Secure Settlement',
+    description: 'Remit payments safely through RBI-authorized escrow banking channels.'
   },
   {
     number: '06',
-    title: 'Payment',
-    description: 'Complete payment within the applicable deadline.'
-  },
-  {
-    number: '07',
     title: 'Vehicle Lifting',
-    description: 'Complete the required process and collect/lift the vehicle.'
+    description: 'Collect your vehicle from regional yard with digital QR Gate Pass.'
   }
 ];
 
