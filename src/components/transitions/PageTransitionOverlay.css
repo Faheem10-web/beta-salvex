@@ -1,0 +1,59 @@
+/* ==========================================================================
+   SALVEX AUCTION - PREMIUM BRANDED ROUTE TRANSITION OVERLAY
+   Deep navy / Salvex red automotive cinematic curtain transition.
+   ========================================================================== */
+
+.salvex-route-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  pointer-events: all;
+  background: radial-gradient(circle at 50% 40%, #0F172A 0%, #070B14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: opacity, transform;
+}
+
+.transition-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.transition-center-badge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+  z-index: 2;
+}
+
+.transition-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+}
+
+.transition-accent-bar {
+  width: 54px;
+  height: 2.5px;
+  background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .salvex-route-transition-overlay {
+    transition: opacity 0.15s ease !important;
+  }
+}

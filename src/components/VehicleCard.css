@@ -17,18 +17,24 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.18s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
   width: 100%;
   box-sizing: border-box;
 }
 
-.salvex-vehicle-card:hover {
-  transform: translateY(-3px);
-  border-color: #CBD5E1;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+@media (hover: hover) and (pointer: fine) {
+  .salvex-vehicle-card {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.25s ease;
+  }
+
+  .salvex-vehicle-card:hover {
+    transform: translateY(-3px);
+    border-color: #CBD5E1;
+    box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -48,11 +54,13 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.salvex-vehicle-card:hover .salvex-card-img {
-  transform: scale(1.02);
+@media (hover: hover) and (pointer: fine) {
+  .salvex-vehicle-card:hover .salvex-card-img {
+    transform: scale(1.03);
+  }
 }
 
 /* Status Badges (Top-Left) */
@@ -391,13 +399,31 @@
   white-space: nowrap;
 }
 
+.salvex-card-btn-primary svg,
+.salvex-card-btn-secondary svg {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .salvex-card-btn-primary:hover svg,
+  .salvex-card-btn-secondary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .salvex-card-btn-primary:hover,
+  .salvex-card-btn-secondary:hover {
+    transform: scale(1.015);
+  }
+}
+
+.salvex-card-btn-primary:active,
+.salvex-card-btn-secondary:active {
+  transform: scale(0.98) !important;
+}
+
 .salvex-card-btn-primary:hover {
   background-color: #B91C1C;
   border-color: #B91C1C;
-}
-
-.salvex-card-btn-primary:active {
-  transform: translateY(1px);
 }
 
 .salvex-card-btn-secondary {
