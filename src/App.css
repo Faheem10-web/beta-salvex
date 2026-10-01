@@ -371,13 +371,15 @@
    -------------------------------------------------------------------------- */
 .salvex-hero-section {
   position: relative;
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 165px;
-  padding-bottom: 70px;
+  padding-top: 152px;
+  padding-bottom: 50px;
   background-color: #070B14;
   overflow: hidden;
 }
@@ -832,7 +834,7 @@
   z-index: 10;
   width: 100%;
   max-width: var(--max-width-page);
-  margin: -40px auto 0 auto;
+  margin: 60px auto 0 auto;
   padding: 0 32px;
 }
 
@@ -3994,7 +3996,7 @@ a.footer-contact-item:hover {
   }
 
   .search-panel-anchor-wrapper {
-    margin-top: -30px;
+    margin-top: 40px;
   }
 
   .upcoming-cards-grid {
