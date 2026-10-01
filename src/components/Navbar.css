@@ -9,15 +9,13 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(7, 11, 20, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background-color: #070B14;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
   user-select: none;
   transform: translateY(0);
   will-change: transform;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, backdrop-filter 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
   overflow: visible;
 }
 
@@ -29,9 +27,8 @@
 
 .salvex-two-row-navbar.navbar-scrolled {
   background-color: #070B14;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.12);
 }
 
 /* Subtle red ambient glow toward the right side matching reference */
