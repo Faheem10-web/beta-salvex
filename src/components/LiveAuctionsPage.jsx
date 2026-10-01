@@ -132,17 +132,11 @@ export default function LiveAuctionsPage({
       {/* 01 LUXURY DARK HERO WITH REAL-TIME TELEMETRY */}
       <section className="live-auctions-hero">
         <div className="live-hero-backdrop" aria-hidden="true">
-          <picture>
-            <source
-              media="(max-width: 480px)"
-              srcSet="/images/mobile_hero_car.jpg"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80"
-              alt="Live Vehicle Auctions Fleet Studio"
-              className="live-hero-bg-img"
-            />
-          </picture>
+          <img
+            src="/images/new2.png"
+            alt="Live Vehicle Auctions Fleet Studio - BMW M4"
+            className="live-hero-bg-img"
+          />
           <div className="live-hero-overlay" />
           <div className="live-hero-ambient-glow" />
           <div className="live-hero-top-vignette" />
