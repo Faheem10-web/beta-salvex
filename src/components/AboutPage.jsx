@@ -116,7 +116,7 @@ export default function AboutPage({ onExploreClick, onRegisterClick }) {
                 {/* Single Premium Vehicle Showcase Card */}
                 <div className="about-single-image-card">
                   <img
-                    src="/images/defender-110.jpg"
+                    src="https://i.pinimg.com/736x/8e/f5/c5/8ef5c5059bc189b20b3e6ef4f4cfbb98.jpg"
                     alt="Salvex Auction - Verified Inventory"
                     className="about-single-img"
                     loading="eager"
