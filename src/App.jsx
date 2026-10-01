@@ -55,9 +55,10 @@ import {
 import './App.css';
 import './components/SalvexAppComponents.css';
 import { useScrollAnimations } from './hooks/useScrollAnimations';
-import { resetScrollToTop } from './utils/scrollHelper';
+import PageLoader from './components/ui/PageLoader';
 
 export default function App() {
+  const [showPreloader, setShowPreloader] = useState(true);
   const [liveVehicles, setLiveVehicles] = useState(liveVehiclesData);
   const [savedIds, setSavedIds] = useState(['salvex-101', 'salvex-103']);
 
@@ -179,6 +180,11 @@ export default function App() {
 
   return (
     <div className="salvex-app-root">
+      {/* 00 PREMIUM BRANDED PRELOADER */}
+      {showPreloader && (
+        <PageLoader onLoadingComplete={() => setShowPreloader(false)} />
+      )}
+
       {/* 01 MAIN TWO-ROW NAVBAR */}
       <Navbar
         activeSection={activeSection}

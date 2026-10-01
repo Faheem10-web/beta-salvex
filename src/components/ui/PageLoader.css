@@ -1,0 +1,159 @@
+/* ==========================================================================
+   SALVEX AUCTION - PREMIUM BRANDED PRELOADER STYLING
+   Minimal • Corporate • Modern 2026 Automotive UI • Non-blocking
+   ========================================================================== */
+
+.salvex-page-loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #070B14;
+  background: radial-gradient(circle at 50% 48%, rgba(220, 38, 38, 0.07) 0%, rgba(7, 11, 20, 0.98) 55%, #05080F 100%);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  pointer-events: all;
+  will-change: opacity, transform;
+}
+
+.loader-center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 2. CENTER LOGO: Uses existing Salvex Auction brand logo */
+.loader-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 26px;
+  will-change: opacity, transform;
+}
+
+.loader-salvex-logo {
+  width: 200px;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.6));
+}
+
+/* 4. RED LOADING LINE: Thin Salvex red progress line */
+.loader-progress-track {
+  width: 130px;
+  height: 2.5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.loader-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: #DC2626;
+  border-radius: 999px;
+  transform-origin: left;
+  transform: scaleX(0);
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.7), 0 0 4px #DC2626;
+  will-change: transform;
+}
+
+/* 5. SMALL LOADING TEXT & SUBTLE PROGRESS NUMBER */
+.loader-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 215px;
+  margin-top: 14px;
+  gap: 12px;
+}
+
+.loader-sub-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+  white-space: nowrap;
+}
+
+.loader-percent-num {
+  font-family: 'Outfit', 'Inter', monospace, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* 10. MOBILE OPTIMIZATION (425px - 320px) */
+@media (max-width: 480px) {
+  .loader-salvex-logo {
+    width: 155px;
+    max-height: 38px;
+  }
+
+  .loader-logo-wrapper {
+    margin-bottom: 22px;
+  }
+
+  .loader-progress-track {
+    width: 110px;
+    height: 2px;
+  }
+
+  .loader-meta-row {
+    width: 185px;
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .loader-sub-text {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+
+  .loader-percent-num {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 340px) {
+  .loader-salvex-logo {
+    width: 135px;
+  }
+
+  .loader-meta-row {
+    width: 165px;
+  }
+
+  .loader-sub-text {
+    font-size: 8px;
+  }
+}
+
+/* 12. ACCESSIBILITY: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .salvex-page-loader,
+  .loader-logo-wrapper,
+  .loader-progress-bar {
+    transition: none !important;
+    animation: none !important;
+  }
+}
