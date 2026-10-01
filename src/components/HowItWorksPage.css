@@ -290,14 +290,115 @@
   }
 }
 
+@media (max-width: 860px) {
+  .salvex-how-it-works-page .steps-journey-container,
+  .steps-journey-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .salvex-how-it-works-page {
-    padding-top: 110px;
+    padding-top: 105px !important;
   }
   .salvex-how-it-works-page .salvex-container {
-    padding: 0 20px;
+    padding: 0 18px !important;
   }
+  .salvex-how-it-works-page .steps-journey-container,
   .steps-journey-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .salvex-how-it-works-page {
+    padding-top: 96px !important;
+  }
+
+  .salvex-how-it-works-page .salvex-container {
+    padding: 0 16px !important;
+  }
+
+  .how-steps-section {
+    padding: 32px 0 44px !important;
+  }
+
+  .salvex-how-it-works-page .steps-journey-container,
+  .steps-journey-container {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .step-journey-card {
+    padding: 22px 18px !important;
+    border-radius: 14px !important;
+  }
+
+  .step-card-header {
+    margin-bottom: 14px !important;
+  }
+
+  .step-icon-bubble {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+  }
+
+  .step-large-num {
+    font-size: 28px !important;
+  }
+
+  .step-card-title {
+    font-size: 19px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .step-card-summary {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .step-details-list {
+    padding-top: 14px !important;
+    gap: 9px !important;
+  }
+
+  .step-details-list li {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    gap: 9px !important;
+    align-items: flex-start !important;
+  }
+
+  .check-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    margin-top: 2px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .salvex-how-it-works-page .salvex-container {
+    padding: 0 12px !important;
+  }
+
+  .step-journey-card {
+    padding: 18px 14px !important;
+  }
+
+  .step-card-title {
+    font-size: 17.5px !important;
+  }
+
+  .step-card-summary {
+    font-size: 13px !important;
+  }
+
+  .step-details-list li {
+    font-size: 12px !important;
   }
 }
