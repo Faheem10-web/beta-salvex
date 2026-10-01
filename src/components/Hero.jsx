@@ -3,12 +3,8 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const HERO_SLIDES = [
   {
-    url: '/images/hero.png',
+    url: '/images/new.png',
     alt: 'Salvex Auction Fleet - Mercedes-AMG GT Coupe'
-  },
-  {
-    url: '/images/hero_porsche_gt3.jpg',
-    alt: 'Salvex Auction Fleet - Porsche 911 GT3 Studio Edition'
   }
 ];
 
@@ -16,6 +12,7 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    if (HERO_SLIDES.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 5500);
@@ -55,17 +52,19 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
       </div>
 
       {/* Centered reference pagination indicators (Desktop Full Screen View) */}
-      <div className="hero-center-pagination" aria-label="Slide indicators">
-        {HERO_SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            type="button"
-            className={`hero-center-dot ${idx === currentSlide ? 'active' : ''}`}
-            onClick={() => setCurrentSlide(idx)}
-            aria-label={`Slide ${idx + 1}`}
-          />
-        ))}
-      </div>
+      {HERO_SLIDES.length > 1 && (
+        <div className="hero-center-pagination" aria-label="Slide indicators">
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              className={`hero-center-dot ${idx === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(idx)}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="hero-content-wrapper">
         <div className="hero-top-row">
