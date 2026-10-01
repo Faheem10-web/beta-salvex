@@ -29,8 +29,8 @@
    -------------------------------------------------------------------------- */
 .about-hero-clean {
   position: relative;
-  padding-top: 140px;
-  padding-bottom: 70px;
+  padding-top: 192px;
+  padding-bottom: 72px;
   background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
   border-bottom: 1px solid #E2E8F0;
   overflow: hidden;
@@ -598,7 +598,7 @@
     padding: 0 20px;
   }
   .about-hero-clean {
-    padding-top: 120px;
+    padding-top: 132px;
     padding-bottom: 50px;
   }
   .about-stats-grid {
@@ -610,5 +610,12 @@
   }
   .offer-checklist-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-clean {
+    padding-top: 124px;
+    padding-bottom: 40px;
   }
 }

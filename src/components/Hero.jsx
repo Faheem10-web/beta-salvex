@@ -5,6 +5,10 @@ const HERO_SLIDES = [
   {
     url: 'https://res.cloudinary.com/ddluoarzr/image/upload/v1790837270/new_ahotww.png',
     alt: 'Salvex Auction Fleet - Mercedes-AMG GT Coupe'
+  },
+  {
+    url: 'https://res.cloudinary.com/ddluoarzr/image/upload/v1790837379/new2_zuo5hc.png',
+    alt: 'Salvex Auction Fleet - Luxury High-Performance Vehicle'
   }
 ];
 
@@ -34,16 +38,16 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
           />
         ))}
 
-        {/* Dedicated 425px - 320px Mobile Screen Wallpaper */}
-        <img
-          src="https://res.cloudinary.com/ddluoarzr/image/upload/v1790837270/new_ahotww.png"
-          onError={(e) => {
-            e.currentTarget.src = 'https://i.pinimg.com/736x/6d/e2/7c/6de27ca3f8b331283f1db592c3b3e90d.jpg';
-          }}
-          alt="Salvex Auction Fleet - Mercedes-AMG GT Coupe"
-          className="hero-bg-image hero-bg-mobile"
-          loading="eager"
-        />
+        {/* Dedicated 425px - 320px Mobile Screen Wallpaper (cycles with slides) */}
+        {HERO_SLIDES.map((slide, idx) => (
+          <img
+            key={`mobile-${slide.url}`}
+            src={slide.url}
+            alt={slide.alt}
+            className={`hero-bg-image hero-bg-mobile ${idx === currentSlide ? 'hero-bg-active' : 'hero-bg-inactive'}`}
+            loading={idx === 0 ? 'eager' : 'lazy'}
+          />
+        ))}
 
         {/* Unified dark gradient overlays matching luxury studio reference */}
         <div className="hero-dark-overlay" />

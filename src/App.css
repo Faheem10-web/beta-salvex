@@ -4199,8 +4199,14 @@ a.footer-contact-item:hover {
     object-fit: cover !important;
     object-position: 80% 55% !important;
     filter: contrast(1.05) brightness(1.04) !important;
-    opacity: 1 !important;
+    opacity: 0 !important;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     transform: none !important;
+    z-index: 0 !important;
+  }
+
+  .hero-bg-mobile.hero-bg-active {
+    opacity: 1 !important;
     z-index: 1 !important;
   }
 

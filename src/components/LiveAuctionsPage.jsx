@@ -133,7 +133,7 @@ export default function LiveAuctionsPage({
       <section className="live-auctions-hero">
         <div className="live-hero-backdrop" aria-hidden="true">
           <img
-            src="/images/new2.png"
+            src="https://res.cloudinary.com/ddluoarzr/image/upload/v1790837379/new2_zuo5hc.png"
             alt="Live Vehicle Auctions Fleet Studio - BMW M4"
             className="live-hero-bg-img"
           />
