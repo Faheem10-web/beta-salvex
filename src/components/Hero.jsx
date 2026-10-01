@@ -9,6 +9,10 @@ const HERO_SLIDES = [
   {
     url: 'https://res.cloudinary.com/ddluoarzr/image/upload/v1790837379/new2_zuo5hc.png',
     alt: 'Salvex Auction Fleet - Luxury High-Performance Vehicle'
+  },
+  {
+    url: 'https://res.cloudinary.com/ddluoarzr/image/upload/v1790839477/Blue_Mercedes_G-Class_Overlook_fy0fu0.png',
+    alt: 'Salvex Auction Fleet - Blue Mercedes G-Class Overlook'
   }
 ];
 
