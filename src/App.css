@@ -4197,7 +4197,7 @@ a.footer-contact-item:hover {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 36% !important;
+    object-position: 80% 55% !important;
     filter: contrast(1.05) brightness(1.04) !important;
     opacity: 1 !important;
     transform: none !important;

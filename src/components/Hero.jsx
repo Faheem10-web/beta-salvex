@@ -3,7 +3,7 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const HERO_SLIDES = [
   {
-    url: '/images/new.png',
+    url: 'https://res.cloudinary.com/ddluoarzr/image/upload/v1790837270/new_ahotww.png',
     alt: 'Salvex Auction Fleet - Mercedes-AMG GT Coupe'
   }
 ];
@@ -34,9 +34,9 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
           />
         ))}
 
-        {/* Dedicated 425px - 320px Mobile Screen Wallpaper (Mercedes-AMG GT Coupe in terracotta architecture) */}
+        {/* Dedicated 425px - 320px Mobile Screen Wallpaper */}
         <img
-          src="/images/mobile_hero_car.jpg"
+          src="https://res.cloudinary.com/ddluoarzr/image/upload/v1790837270/new_ahotww.png"
           onError={(e) => {
             e.currentTarget.src = 'https://i.pinimg.com/736x/6d/e2/7c/6de27ca3f8b331283f1db592c3b3e90d.jpg';
           }}
