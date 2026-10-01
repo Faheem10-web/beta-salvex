@@ -126,35 +126,52 @@ export default function Navbar({
             ================================================================== */}
         <div className="navbar-middle-row">
           <div className="salvex-nav-container middle-row-container">
-            {/* LEFT: Currency Selector */}
-            <div className="navbar-currency-wrap">
+            {/* LEFT: Currency Selector + Search Icon Button */}
+            <div className="navbar-left-actions">
+              <div className="navbar-currency-wrap">
+                <button
+                  type="button"
+                  className="navbar-currency-btn"
+                  onClick={() => setCurrencyDropdownOpen(!currencyDropdownOpen)}
+                  aria-label="Select currency"
+                >
+                  <span>{selectedCurrency}</span>
+                  <ChevronDown size={14} className={`currency-chevron ${currencyDropdownOpen ? 'open' : ''}`} />
+                </button>
+
+                {currencyDropdownOpen && (
+                  <div className="navbar-currency-dropdown">
+                    {currencies.map((curr) => (
+                      <button
+                        key={curr.code}
+                        type="button"
+                        className={`currency-option ${selectedCurrency === curr.label ? 'active' : ''}`}
+                        onClick={() => {
+                          setSelectedCurrency(curr.label);
+                          setCurrencyDropdownOpen(false);
+                        }}
+                      >
+                        {curr.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Vertical divider */}
+              <div className="navbar-left-divider" aria-hidden="true" />
+
+              {/* Left Search Icon Button (White rounded square with red search icon) */}
               <button
                 type="button"
-                className="navbar-currency-btn"
-                onClick={() => setCurrencyDropdownOpen(!currencyDropdownOpen)}
-                aria-label="Select currency"
+                className="btn-navbar-search-icon"
+                onClick={onOpenSearchModal}
+                title="Search Vehicles & Inventory"
+                aria-label="Search"
+                id="navbar-search-btn-left"
               >
-                <span>{selectedCurrency}</span>
-                <ChevronDown size={14} className={`currency-chevron ${currencyDropdownOpen ? 'open' : ''}`} />
+                <Search size={18} strokeWidth={2.4} className="navbar-search-red-icon" />
               </button>
-
-              {currencyDropdownOpen && (
-                <div className="navbar-currency-dropdown">
-                  {currencies.map((curr) => (
-                    <button
-                      key={curr.code}
-                      type="button"
-                      className={`currency-option ${selectedCurrency === curr.label ? 'active' : ''}`}
-                      onClick={() => {
-                        setSelectedCurrency(curr.label);
-                        setCurrencyDropdownOpen(false);
-                      }}
-                    >
-                      {curr.label}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* CENTER: Salvex Auction Brand Logo */}
@@ -168,21 +185,8 @@ export default function Navbar({
               <SalvexLogo variant="light" height={38} />
             </div>
 
-            {/* RIGHT: Search Pill + Wishlist + Login + Register CTA */}
+            {/* RIGHT: List Your Vehicle + Wishlist + Login + Register CTA */}
             <div className="navbar-middle-actions">
-              {/* Pill Search Input */}
-              <form className="navbar-search-pill-form" onSubmit={handleSearchSubmit}>
-                <Search size={16} className="search-pill-icon" />
-                <input
-                  type="text"
-                  placeholder="Search vehicles, make, model, year..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="search-pill-input"
-                  id="nav-search-input"
-                />
-              </form>
-
               {/* List Your Vehicle Button */}
               <button
                 type="button"
