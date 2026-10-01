@@ -279,17 +279,20 @@
 .mobile-drawer {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  right: auto;
   bottom: 0;
   width: 320px;
   max-width: 85vw;
   background-color: var(--color-dark-navy);
-  border-left: 1px solid var(--color-border-dark);
+  border-right: 1px solid var(--color-border-dark);
+  border-left: none;
   z-index: 1100;
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .mobile-drawer.mobile-drawer-open {

@@ -338,7 +338,7 @@ export default function Navbar({
         aria-label="Mobile Navigation"
       >
         <div className="mobile-drawer-header">
-          <SalvexLogo variant="light" height={34} />
+          <SalvexLogo variant="dark" height={34} />
           <button
             type="button"
             className="mobile-close-btn"
