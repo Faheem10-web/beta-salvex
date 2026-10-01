@@ -71,9 +71,8 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
         <div className="hero-top-row">
           {/* Left Column: Headings & Conversion CTAs */}
           <div className="hero-text-block">
-            {/* Tagline / Eyebrow with red Welcome badge matching reference */}
+            {/* Tagline / Eyebrow */}
             <div className="hero-eyebrow-row">
-              <span className="hero-welcome-badge">Welcome</span>
               <span className="hero-eyebrow-accent-line" />
               <span className="hero-eyebrow-label">TRUSTED VEHICLE AUCTION PLATFORM</span>
             </div>
