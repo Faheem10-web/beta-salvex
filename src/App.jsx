@@ -54,19 +54,12 @@ import {
 
 import './App.css';
 import './components/SalvexAppComponents.css';
-import { useScrollAnimations, triggerHomepageEntry } from './hooks/useScrollAnimations';
+import { useScrollAnimations } from './hooks/useScrollAnimations';
 import PageLoader from './components/ui/PageLoader';
-import PageTransitionOverlay from './components/transitions/PageTransitionOverlay';
 import { resetScrollToTop } from './utils/scrollHelper';
-import { scrollToTarget } from './utils/smoothScroll';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);
-  const [isPageTransitioning, setIsPageTransitioning] = useState(false);
-  const [pendingRoute, setPendingRoute] = useState(null);
-  const [pendingParams, setPendingParams] = useState(null);
   const [liveVehicles, setLiveVehicles] = useState(liveVehiclesData);
   const [savedIds, setSavedIds] = useState(['salvex-101', 'salvex-103']);
 
@@ -78,27 +71,6 @@ export default function App() {
 
   // GSAP ScrollTrigger smooth premium scroll enhancements
   useScrollAnimations(currentRoute);
-
-  // Browser Back / Forward button navigation synchronization
-  React.useEffect(() => {
-    const handlePopState = (e) => {
-      const stateRoute = e.state?.route || window.location.hash.replace('#', '') || 'home';
-      if (e.state?.params?.vehicle) {
-        setActiveVehicle(e.state.params.vehicle);
-      }
-      if (e.state?.params?.lotId) {
-        setActiveLotId(e.state.params.lotId);
-      }
-      setCurrentRoute(stateRoute);
-      setActiveSection(stateRoute);
-      resetScrollToTop();
-      setNavKey((k) => k + 1);
-      setTimeout(() => ScrollTrigger.refresh(), 100);
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
 
   // Currently viewed vehicle for /vehicles/:id details page
   const defaultVehicle = liveVehicles.find((v) => v.id === 'salvex-103') || liveVehicles[0];
@@ -139,8 +111,8 @@ export default function App() {
     setTimeout(() => setToastMessage(null), 3500);
   };
 
-  // Immediate state update helper
-  const applyNavigation = (route, params = null) => {
+  // Central Router Dispatcher
+  const navigateTo = (route, params = null) => {
     if (params?.vehicle) {
       setActiveVehicle(params.vehicle);
     }
@@ -148,77 +120,24 @@ export default function App() {
       setActiveLotId(params.lotId);
     }
 
-    const actualRoute = route === 'register' ? 'login' : route;
-    setCurrentRoute(actualRoute);
-    setActiveSection(actualRoute);
-
     // Reset scroll position immediately on navigation
     resetScrollToTop();
     setNavKey((k) => k + 1);
 
-    // Synchronize browser history for natural back / forward navigation
-    try {
-      if (typeof window !== 'undefined') {
-        const hash = actualRoute === 'home' ? '' : `#${actualRoute}`;
-        window.history.pushState({ route: actualRoute, params }, '', window.location.pathname + hash);
-      }
-    } catch {}
-  };
-
-  // Central Router Dispatcher with Branded Page-to-Page Transition
-  const navigateTo = (route, params = null) => {
-    // If user clicked home while already on home, smooth scroll to top
-    if (route === 'home' && currentRoute === 'home') {
-      scrollToTarget(0);
+    if (route === 'home') {
+      setCurrentRoute('home');
+      setActiveSection('home');
       return;
     }
 
-    // Bypass transition overlay during initial preloader display
-    if (showPreloader) {
-      applyNavigation(route, params);
+    if (route === 'register') {
+      setCurrentRoute('login');
+      setActiveSection('login');
       return;
     }
 
-    // Trigger fast, cinematic branded curtain transition (400-550ms total)
-    setPendingRoute(route);
-    setPendingParams(params);
-    setIsPageTransitioning(true);
-
-    // Fade and elevate current outlet content slightly (y: 0 -> -14px)
-    gsap.to('.salvex-main-route-outlet', {
-      opacity: 0.35,
-      y: -14,
-      duration: 0.18,
-      ease: 'power2.inOut'
-    });
-  };
-
-  const handleTransitionMidpoint = () => {
-    if (pendingRoute) {
-      applyNavigation(pendingRoute, pendingParams);
-    }
-  };
-
-  const handleTransitionComplete = () => {
-    setIsPageTransitioning(false);
-    setPendingRoute(null);
-    setPendingParams(null);
-
-    // Reveal new page content smoothly upward (y: 16px -> 0)
-    gsap.fromTo(
-      '.salvex-main-route-outlet',
-      { opacity: 0.35, y: 16 },
-      { opacity: 1, y: 0, duration: 0.3, ease: 'power3.out' }
-    );
-
-    ScrollTrigger.refresh();
-  };
-
-  const handlePreloaderComplete = () => {
-    setShowPreloader(false);
-    requestAnimationFrame(() => {
-      triggerHomepageEntry();
-    });
+    setCurrentRoute(route);
+    setActiveSection(route);
   };
 
   // Watchlist Toggle
@@ -264,15 +183,8 @@ export default function App() {
     <div className="salvex-app-root">
       {/* 00 PREMIUM BRANDED PRELOADER */}
       {showPreloader && (
-        <PageLoader onLoadingComplete={handlePreloaderComplete} />
+        <PageLoader onLoadingComplete={() => setShowPreloader(false)} />
       )}
-
-      {/* 00B BRANDED PAGE-TO-PAGE ROUTE TRANSITION CURTAIN */}
-      <PageTransitionOverlay
-        isActive={isPageTransitioning}
-        onMidpoint={handleTransitionMidpoint}
-        onComplete={handleTransitionComplete}
-      />
 
       {/* 01 MAIN TWO-ROW NAVBAR */}
       <Navbar
@@ -296,7 +208,8 @@ export default function App() {
           <div className="salvex-home-view">
             <Hero
               onSearchClick={() => {
-                scrollToTarget('#auction-search-panel');
+                const el = document.getElementById('auction-search-panel');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
               onLiveAuctionsClick={() => navigateTo('live-auctions')}
             />

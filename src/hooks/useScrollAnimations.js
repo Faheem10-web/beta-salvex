@@ -5,110 +5,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Trigger initial sequential homepage entrance animation after preloader exit
- */
-export function triggerHomepageEntry() {
-  if (typeof window === 'undefined') return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  // 1. Navbar appears smoothly
-  const navbar = document.querySelector('.salvex-master-navbar');
-  if (navbar) {
-    tl.fromTo(
-      navbar,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.65 },
-      0.05
-    );
-  }
-
-  // 2. Hero eyebrow reveals
-  const eyebrow = document.querySelector('.hero-eyebrow-row');
-  if (eyebrow) {
-    tl.fromTo(
-      eyebrow,
-      { opacity: 0, y: 25 },
-      { opacity: 1, y: 0, duration: 0.65 },
-      0.15
-    );
-  }
-
-  // 3. Hero heading reveals
-  const heading = document.querySelector('.hero-main-title');
-  if (heading) {
-    tl.fromTo(
-      heading,
-      { opacity: 0, y: 25 },
-      { opacity: 1, y: 0, duration: 0.75 },
-      0.25
-    );
-  }
-
-  // 4. Hero description reveals
-  const desc = document.querySelector('.hero-description');
-  if (desc) {
-    tl.fromTo(
-      desc,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.65 },
-      0.35
-    );
-  }
-
-  // 5. CTA buttons reveal
-  const ctas = document.querySelectorAll('.hero-cta-group button');
-  if (ctas && ctas.length > 0) {
-    tl.fromTo(
-      ctas,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.65, stagger: 0.08 },
-      0.45
-    );
-  }
-
-  // 6. Hero vehicle / background image reveals
-  const heroImgs = document.querySelectorAll('.hero-bg-desktop, .hero-bg-mobile');
-  if (heroImgs && heroImgs.length > 0) {
-    tl.fromTo(
-      heroImgs,
-      { opacity: 0, scale: 1.05 },
-      { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' },
-      0.3
-    );
-  }
-
-  // 7. Search panel reveals
-  const searchPanel = document.querySelector('.salvex-search-section, .search-panel-container');
-  if (searchPanel) {
-    tl.fromTo(
-      searchPanel,
-      { opacity: 0, y: 28 },
-      { opacity: 1, y: 0, duration: 0.75 },
-      0.55
-    );
-  }
-}
-
-/**
  * useScrollAnimations
  * Smooth, natural GSAP ScrollTrigger enhancements for Salvex Auction.
  *
  * Principles:
  * - Natural unpinned browser scrolling
- * - Subtle hero parallax depth (content y: 0 -> -80, vehicle y: 0 -> -35, background y: 0 -> -20)
- * - Controlled section reveals (headings y: 35 -> 0, desc y: 20 -> 0, cards y: 35 -> 0)
- * - Auction card image scale 1.04 -> 1 on enter
- * - Responsive via gsap.matchMedia() (desktop, tablet, mobile)
+ * - Subtle hero parallax depth (background yPercent: -8, content yPercent: -3)
+ * - Grouped subtle reveals for section headings, vehicle cards, auction cards, steps, and CTAs
+ * - Responsive via gsap.matchMedia()
  * - Respects prefers-reduced-motion
  * - Strict transform & opacity only
  */
 export function useScrollAnimations(currentRoute) {
   useEffect(() => {
-    // Accessibility check: disable animations if user prefers reduced motion
+    // 01. Accessibility Check: Disable animations if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       return;
@@ -116,18 +26,19 @@ export function useScrollAnimations(currentRoute) {
 
     const mm = gsap.matchMedia();
 
-    // 01. DESKTOP & LAPTOP (> 768px)
+    // 02. DESKTOP & TABLET LANDSCAPE (> 768px)
     mm.add('(min-width: 769px)', () => {
-      // A. HERO SECTION: Subtle natural parallax scrub (NO PINNING)
+      // A. HERO SECTION: Subtle natural parallax (NO PINNING)
       const hero = document.querySelector('.salvex-hero-section');
       if (hero) {
         const bgImg = hero.querySelector('.hero-bg-image');
         const heroContent = hero.querySelector('.hero-content-wrapper');
 
-        // Background moves slower (y: 0 -> -20)
+        // Background moves slightly slower than content for depth
         if (bgImg) {
           gsap.to(bgImg, {
-            y: -20,
+            yPercent: -8,
+            scale: 0.98,
             ease: 'none',
             scrollTrigger: {
               trigger: hero,
@@ -139,11 +50,11 @@ export function useScrollAnimations(currentRoute) {
           });
         }
 
-        // Hero content moves upward slightly (y: 0 -> -80)
+        // Hero content moves naturally upward with subtle opacity drop as it leaves
         if (heroContent) {
           gsap.to(heroContent, {
-            y: -80,
-            opacity: 0.9,
+            yPercent: -3,
+            opacity: 0.88,
             ease: 'none',
             scrollTrigger: {
               trigger: hero,
@@ -156,16 +67,16 @@ export function useScrollAnimations(currentRoute) {
         }
       }
 
-      // B. SECTION HEADINGS: Subtle upward fade reveal (y: 35 -> 0)
+      // B. SECTION HEADINGS: Subtle upward fade reveal
       const sectionHeadings = gsap.utils.toArray(
-        '.section-title, .section-header-centered h2, .about-heading, .page-header-title, .about-eyebrow-tag'
+        '.section-header-centered, .about-eyebrow-tag, .about-heading'
       );
       sectionHeadings.forEach((heading) => {
         gsap.from(heading, {
           opacity: 0,
-          y: 35,
-          duration: 0.7,
-          ease: 'power3.out',
+          y: 24,
+          duration: 0.65,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: heading,
             start: 'top 88%',
@@ -174,61 +85,12 @@ export function useScrollAnimations(currentRoute) {
         });
       });
 
-      // C. SECTION SUBTITLES / DESCRIPTIONS: (y: 20 -> 0)
-      const sectionDescriptions = gsap.utils.toArray(
-        '.section-subtitle, .about-paragraph-text, .page-header-subtitle'
-      );
-      sectionDescriptions.forEach((desc) => {
-        gsap.from(desc, {
-          opacity: 0,
-          y: 20,
-          duration: 0.65,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: desc,
-            start: 'top 88%',
-            once: true
-          }
-        });
-      });
-
-      // D. LIVE AUCTION CARDS: Reveal with y: 30 -> 0 and image scale 1.04 -> 1
-      const liveSection = document.querySelector('.salvex-live-section');
-      if (liveSection) {
-        const cards = liveSection.querySelectorAll('.live-slider-card');
-        if (cards.length > 0) {
-          gsap.from(cards, {
-            opacity: 0,
-            y: 30,
-            duration: 0.65,
-            stagger: 0.08,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: liveSection,
-              start: 'top 85%',
-              once: true
-            }
-          });
-
-          const images = liveSection.querySelectorAll('.live-card-image');
-          if (images.length > 0) {
-            gsap.from(images, {
-              scale: 1.04,
-              duration: 0.85,
-              stagger: 0.08,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: liveSection,
-                start: 'top 85%',
-                once: true
-              }
-            });
-          }
-        }
-      }
-
-      // E. UPCOMING AUCTIONS & VEHICLE GRIDS: Staggered reveal
-      const cardSections = [
+      // C. CARD GROUPS: Staggered reveal for vehicle & auction cards
+      const cardGroups = [
+        {
+          trigger: '.salvex-live-section',
+          items: '.salvex-live-section .live-slider-card'
+        },
         {
           trigger: '.salvex-upcoming-section',
           items: '.salvex-upcoming-section .upcoming-ref-card'
@@ -238,27 +100,36 @@ export function useScrollAnimations(currentRoute) {
           items: '.salvex-recent-section .salvex-vehicle-card'
         },
         {
+          trigger: '.salvex-how-section',
+          items: '.salvex-how-section .step-process-card'
+        },
+        {
           trigger: '.salvex-trust-section',
           items: '.salvex-trust-section .why-feature-card'
         },
         {
-          trigger: '.vehicles-results-grid',
-          items: '.salvex-vehicle-card, .vehicle-card-wrapper'
+          trigger: '.steps-journey-container',
+          items: '.step-journey-card'
         },
         {
-          trigger: '.upcoming-auctions-grid',
-          items: '.upcoming-card-wrapper, .upcoming-ref-card'
+          trigger: '.trust-grid',
+          items: '.trust-col'
+        },
+        {
+          trigger: '.vehicles-results-grid',
+          items: '.vehicle-card-wrapper, .vehicles-results-grid .salvex-vehicle-card'
         }
       ];
 
-      cardSections.forEach(({ trigger, items }) => {
+      cardGroups.forEach(({ trigger, items }) => {
         const triggerEl = document.querySelector(trigger);
         if (triggerEl) {
           const elements = triggerEl.querySelectorAll(items);
           if (elements.length > 0) {
             gsap.from(elements, {
               opacity: 0,
-              y: 32,
+              y: 28,
+              scale: 0.98,
               duration: 0.65,
               stagger: 0.08,
               ease: 'power2.out',
@@ -272,54 +143,19 @@ export function useScrollAnimations(currentRoute) {
         }
       });
 
-      // F. HOW IT WORKS: Sequential steps & connecting bar
-      const howSection = document.querySelector('.salvex-how-section');
-      if (howSection) {
-        const steps = howSection.querySelectorAll('.step-card');
-        const bar = howSection.querySelector('.steps-connecting-bar');
-
-        if (bar) {
-          gsap.from(bar, {
-            scaleX: 0,
-            transformOrigin: 'left center',
-            duration: 0.85,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: howSection,
-              start: 'top 82%',
-              once: true
-            }
-          });
-        }
-
-        if (steps.length > 0) {
-          gsap.from(steps, {
-            opacity: 0,
-            y: 30,
-            duration: 0.65,
-            stagger: 0.09,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: howSection,
-              start: 'top 82%',
-              once: true
-            }
-          });
-        }
-      }
-
-      // G. ABOUT SECTION: Sequential dual-column reveal
+      // D. ABOUT SECTION: Refined dual-column entrance
       const aboutSection = document.querySelector('.salvex-about-section');
       if (aboutSection) {
-        const aboutImg = aboutSection.querySelector('.about-facility-image');
-        const aboutContent = aboutSection.querySelector('.about-content-column');
+        const aboutImg = aboutSection.querySelector('.about-image-wrapper');
+        const aboutContent = aboutSection.querySelector('.about-paragraphs, .about-sources-card');
 
         if (aboutImg) {
           gsap.from(aboutImg, {
             opacity: 0,
-            scale: 1.06,
-            duration: 0.85,
-            ease: 'power3.out',
+            y: 28,
+            scale: 0.98,
+            duration: 0.7,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: aboutSection,
               start: 'top 85%',
@@ -329,11 +165,10 @@ export function useScrollAnimations(currentRoute) {
         }
 
         if (aboutContent) {
-          gsap.from(aboutContent.children, {
+          gsap.from(aboutContent, {
             opacity: 0,
-            y: 22,
-            duration: 0.65,
-            stagger: 0.08,
+            y: 24,
+            duration: 0.7,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: aboutSection,
@@ -344,114 +179,51 @@ export function useScrollAnimations(currentRoute) {
         }
       }
 
-      // H. STATS & TRUST NUMBERS: Gentle reveal
-      const statsElements = gsap.utils.toArray('.about-stat-item, .trust-col');
-      if (statsElements.length > 0) {
-        gsap.from(statsElements, {
-          opacity: 0,
-          y: 24,
-          duration: 0.65,
-          stagger: 0.08,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: statsElements[0],
-            start: 'top 88%',
-            once: true
-          }
-        });
-      }
-
-      // I. LARGE IMAGE REVEAL (Facility, About showcase, Vehicle Detail Gallery)
-      const largeImages = gsap.utils.toArray(
-        '.about-single-img, .gallery-active-image, .about-facility-image'
-      );
-      largeImages.forEach((img) => {
-        gsap.from(img, {
-          opacity: 0,
-          scale: 1.05,
-          duration: 0.85,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: img,
-            start: 'top 88%',
-            once: true
-          }
-        });
-      });
-
-      // J. FINAL CTA & FOOTER: Smooth elevated reveals
-      const finalCta = document.querySelector('.salvex-final-cta-section, .buyer-cta-section');
+      // E. FINAL CTA SECTION: Smooth elevated card reveal
+      const finalCta = document.querySelector('.salvex-final-cta-section');
       if (finalCta) {
-        gsap.from(finalCta, {
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: finalCta,
-            start: 'top 85%',
-            once: true
-          }
-        });
-      }
-
-      const footer = document.querySelector('.salvex-commercial-footer');
-      if (footer) {
-        gsap.from(footer, {
-          opacity: 0,
-          y: 25,
-          duration: 0.65,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: footer,
-            start: 'top 92%',
-            once: true
-          }
-        });
+        const ctaCard = finalCta.querySelector('.final-cta-card');
+        if (ctaCard) {
+          gsap.from(ctaCard, {
+            opacity: 0,
+            y: 28,
+            scale: 0.98,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: finalCta,
+              start: 'top 85%',
+              once: true
+            }
+          });
+        }
       }
     });
 
-    // 02. MOBILE & SMALL TOUCH SCREENS (<= 768px down to 320px)
+    // 03. MOBILE (<= 768px): Light, fluid reveals without heavy transforms
     mm.add('(max-width: 768px)', () => {
-      // Reduced movement distances, no heavy parallax, fast and fluid
-      const mobileHeadings = gsap.utils.toArray('.section-title, .about-heading, .page-header-title');
+      const mobileHeadings = gsap.utils.toArray('.section-title, .about-heading');
       mobileHeadings.forEach((heading) => {
         gsap.from(heading, {
           opacity: 0,
           y: 16,
-          duration: 0.5,
+          duration: 0.45,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: heading,
-            start: 'top 90%',
+            start: 'top 92%',
             once: true
           }
         });
       });
-
-      const mobileCards = gsap.utils.toArray('.live-slider-card, .salvex-vehicle-card, .why-feature-card, .step-card');
-      if (mobileCards.length > 0) {
-        gsap.from(mobileCards, {
-          opacity: 0,
-          y: 18,
-          duration: 0.5,
-          stagger: 0.05,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: mobileCards[0],
-            start: 'top 90%',
-            once: true
-          }
-        });
-      }
     });
 
-    // 03. Refresh ScrollTrigger after DOM has settled
+    // 04. Refresh ScrollTrigger after DOM has settled
     const refreshTimer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 120);
 
-    // 04. Cleanup on route change or unmount
+    // 05. Clean up on route change / unmount
     return () => {
       clearTimeout(refreshTimer);
       mm.revert();

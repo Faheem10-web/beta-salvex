@@ -7,8 +7,6 @@
  * document/body scroll containers, and browser scroll restoration.
  */
 
-import { getLenis } from './smoothScroll';
-
 if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
   window.history.scrollRestoration = 'manual';
 }
@@ -39,13 +37,6 @@ export function resetScrollToTop() {
     }
     if (body && body.scrollTop !== 0) {
       body.scrollTop = 0;
-    }
-
-    const lenis = getLenis();
-    if (lenis) {
-      try {
-        lenis.scrollTo(0, { immediate: true });
-      } catch {}
     }
 
     const mainOutlet = document.querySelector('.salvex-main-route-outlet') || document.getElementById('main-content');
