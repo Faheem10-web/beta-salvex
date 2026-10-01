@@ -6,6 +6,7 @@ import {
   Heart,
   Gavel,
   ArrowRight,
+  ShieldCheck,
   Fuel,
   Gauge,
   MapPin,
