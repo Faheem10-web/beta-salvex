@@ -6,6 +6,7 @@ import {
   Heart,
   ArrowRight,
   ChevronDown,
+  ChevronRight,
   Truck,
   Headphones,
   Menu,
@@ -107,16 +108,35 @@ export default function Navbar({
             ================================================================== */}
         <div className="navbar-announcement-bar">
           <div className="salvex-nav-container announcement-container">
-            <div className="announcement-left" />
+            {/* Desktop Left Blank Spacer */}
+            <div className="announcement-left announcement-desktop" />
 
-            <div className="announcement-center">
+            {/* Desktop Center */}
+            <div className="announcement-center announcement-desktop">
               <Truck size={13} className="announcement-icon" />
               <span>New Arrivals Added Daily &nbsp;|&nbsp; <strong>Register Now to Start Bidding</strong></span>
             </div>
 
-            <div className="announcement-right">
+            {/* Desktop Right */}
+            <div className="announcement-right announcement-desktop">
               <Headphones size={13} className="announcement-icon" />
               <span>Need Help? <strong>+91 98765 43210</strong></span>
+            </div>
+
+            {/* Mobile Announcement Banner (425px - 320px) matching reference */}
+            <div
+              className="announcement-mobile-banner"
+              onClick={onOpenBidderModal}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="announcement-mobile-content">
+                <Truck size={14} className="announcement-icon" />
+                <span className="announcement-mobile-text">
+                  New Arrivals Added Daily &nbsp;|&nbsp; <strong>Register Now to Start Bidding</strong>
+                </span>
+              </div>
+              <ChevronRight size={15} strokeWidth={2.4} className="announcement-mobile-chevron" />
             </div>
           </div>
         </div>
@@ -126,7 +146,18 @@ export default function Navbar({
             ================================================================== */}
         <div className="navbar-middle-row">
           <div className="salvex-nav-container middle-row-container">
-            {/* LEFT: Currency Selector + Search Icon Button */}
+            {/* MOBILE ONLY: Left Hamburger Menu Button */}
+            <button
+              type="button"
+              className="navbar-mobile-hamburger-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              id="mobile-nav-hamburger"
+            >
+              {mobileMenuOpen ? <X size={23} strokeWidth={2.2} /> : <Menu size={23} strokeWidth={2.2} />}
+            </button>
+
+            {/* DESKTOP ONLY: Left Currency Selector + Search Icon Button */}
             <div className="navbar-left-actions">
               <div className="navbar-currency-wrap">
                 <button
@@ -182,10 +213,10 @@ export default function Navbar({
               tabIndex={0}
               title="Salvex Auction Home"
             >
-              <SalvexLogo variant="light" height={38} />
+              <SalvexLogo variant="light" height={36} />
             </div>
 
-            {/* RIGHT: List Your Vehicle + Wishlist + Login + Register CTA */}
+            {/* DESKTOP ONLY: List Your Vehicle + Wishlist + Login + Register CTA */}
             <div className="navbar-middle-actions">
               {/* List Your Vehicle Button */}
               <button
@@ -236,44 +267,30 @@ export default function Navbar({
               </button>
             </div>
 
-            {/* Mobile Top Actions (visible only on mobile) */}
+            {/* MOBILE ONLY (425px - 320px): Right Controls: Search Box Button + Red User Box Button */}
             <div className="navbar-mobile-controls">
+              {/* Search Box Button */}
               <button
                 type="button"
-                className="mobile-control-icon"
+                className="mobile-search-box-btn"
                 onClick={onOpenSearchModal}
-                aria-label="Search"
+                aria-label="Search Vehicles"
+                title="Search"
+                id="mobile-search-btn"
               >
-                <Search size={20} />
+                <Search size={18} strokeWidth={2.2} />
               </button>
 
+              {/* Red User Box Button */}
               <button
                 type="button"
-                className="mobile-control-icon"
-                onClick={onOpenSavedModal}
-                aria-label="Saved"
-              >
-                <Heart size={20} />
-                {savedCount > 0 && <span className="mobile-badge">{savedCount}</span>}
-              </button>
-
-              <button
-                type="button"
-                className="mobile-control-icon"
+                className="mobile-user-box-btn"
                 onClick={onOpenBidderModal}
                 aria-label="Account Login"
+                title="Account Login"
+                id="mobile-user-btn"
               >
-                <User size={20} />
-              </button>
-
-              <button
-                type="button"
-                className="navbar-hamburger-red"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle navigation menu"
-                id="navbar-hamburger"
-              >
-                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                <User size={19} strokeWidth={2.2} />
               </button>
             </div>
           </div>
