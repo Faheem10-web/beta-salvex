@@ -421,6 +421,10 @@
   z-index: 0;
 }
 
+.hero-bg-mobile {
+  display: none;
+}
+
 .hero-dark-overlay {
   position: absolute;
   inset: 0;
@@ -4154,21 +4158,35 @@ a.footer-contact-item:hover {
     font-weight: 600 !important;
   }
 
-  /* Ground the vehicle at the bottom of the screen with reflections */
-  .hero-bg-image {
-    object-position: center bottom 18px !important;
+  /* On 425px - 320px screens: hide desktop slideshow images, show mobile-dedicated vertical wallpaper */
+  .hero-bg-desktop {
+    display: none !important;
+  }
+
+  .hero-bg-mobile {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover !important;
+    object-position: center 40% !important;
+    filter: contrast(1.08) brightness(0.96) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: 1 !important;
   }
 
   /* Vertical studio gradient: Solid dark on top for text, clear and vivid at bottom for vehicle */
   .hero-dark-overlay {
     background: linear-gradient(
       180deg,
-      #070B14 0%,
-      #070B14 38%,
-      rgba(7, 11, 20, 0.94) 52%,
-      rgba(7, 11, 20, 0.35) 68%,
-      transparent 84%
+      rgba(7, 11, 20, 0.94) 0%,
+      rgba(7, 11, 20, 0.82) 34%,
+      rgba(7, 11, 20, 0.45) 50%,
+      rgba(7, 11, 20, 0.08) 64%,
+      transparent 78%,
+      rgba(7, 11, 20, 0.90) 100%
     ) !important;
   }
 

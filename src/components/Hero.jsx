@@ -26,15 +26,28 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
     <section className="salvex-hero-section" id="home">
       {/* Background Cinematic Automotive Studio Slideshow */}
       <div className="hero-backdrop">
+        {/* Desktop Slideshow */}
         {HERO_SLIDES.map((slide, idx) => (
           <img
             key={slide.url}
             src={slide.url}
             alt={slide.alt}
-            className={`hero-bg-image ${idx === currentSlide ? 'hero-bg-active' : 'hero-bg-inactive'}`}
+            className={`hero-bg-image hero-bg-desktop ${idx === currentSlide ? 'hero-bg-active' : 'hero-bg-inactive'}`}
             loading={idx === 0 ? 'eager' : 'lazy'}
           />
         ))}
+
+        {/* Dedicated 425px - 320px Mobile Screen Wallpaper (Mercedes-AMG GT Coupe in terracotta architecture) */}
+        <img
+          src="/images/mobile_hero_car.jpg"
+          onError={(e) => {
+            e.currentTarget.src = 'https://i.pinimg.com/736x/6d/e2/7c/6de27ca3f8b331283f1db592c3b3e90d.jpg';
+          }}
+          alt="Salvex Auction Fleet - Mercedes-AMG GT Coupe"
+          className="hero-bg-image hero-bg-mobile"
+          loading="eager"
+        />
+
         {/* Unified dark gradient overlays matching luxury studio reference */}
         <div className="hero-dark-overlay" />
         <div className="hero-top-vignette" />
