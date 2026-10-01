@@ -9,8 +9,8 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background-color: #070B14;
-  background: radial-gradient(circle at 50% 48%, rgba(220, 38, 38, 0.07) 0%, rgba(7, 11, 20, 0.98) 55%, #05080F 100%);
+  background-color: #030407;
+  background: radial-gradient(circle at 50% 46%, #1c0508 0%, #0d0204 36%, #05060b 72%, #020306 100%);
   z-index: 999999;
   display: flex;
   align-items: center;
@@ -31,8 +31,24 @@
   z-index: 2;
 }
 
+.loader-center-content::before {
+  content: '';
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.26) 0%, rgba(220, 38, 38, 0.06) 55%, transparent 75%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* 2. CENTER LOGO: Uses existing Salvex Auction brand logo */
 .loader-logo-wrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,33 +62,36 @@
   max-height: 48px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 4px 22px rgba(220, 38, 38, 0.25)) drop-shadow(0 8px 30px rgba(0, 0, 0, 0.8));
 }
 
 /* 4. RED LOADING LINE: Thin Salvex red progress line */
 .loader-progress-track {
-  width: 130px;
-  height: 2.5px;
+  position: relative;
+  z-index: 1;
+  width: 140px;
+  height: 3px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   overflow: hidden;
-  position: relative;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .loader-progress-bar {
   width: 100%;
   height: 100%;
-  background: #DC2626;
+  background: linear-gradient(90deg, #991b1b 0%, #DC2626 60%, #ef4444 100%);
   border-radius: 999px;
   transform-origin: left;
   transform: scaleX(0);
-  box-shadow: 0 0 12px rgba(220, 38, 38, 0.7), 0 0 4px #DC2626;
+  box-shadow: 0 0 14px rgba(220, 38, 38, 0.9), 0 0 4px #DC2626;
   will-change: transform;
 }
 
 /* 5. SMALL LOADING TEXT & SUBTLE PROGRESS NUMBER */
 .loader-meta-row {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;

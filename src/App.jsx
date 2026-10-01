@@ -56,6 +56,7 @@ import './App.css';
 import './components/SalvexAppComponents.css';
 import { useScrollAnimations } from './hooks/useScrollAnimations';
 import PageLoader from './components/ui/PageLoader';
+import { resetScrollToTop } from './utils/scrollHelper';
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);
