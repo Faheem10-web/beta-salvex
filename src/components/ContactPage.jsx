@@ -77,17 +77,7 @@ export default function ContactPage({ onShowToast, onNavigate, onOpenRegister })
 
         <div className="contact-v2-hero-container">
           <div className="contact-v2-hero-content">
-            {/* Breadcrumb */}
-            <div className="contact-v2-breadcrumb">
-              <span
-                className="breadcrumb-link"
-                onClick={() => onNavigate && onNavigate('home')}
-              >
-                Home
-              </span>
-              <span className="breadcrumb-sep">&gt;</span>
-              <span className="breadcrumb-current">Contact Us</span>
-            </div>
+            {/* Title */}
 
             {/* Title */}
             <h1 className="contact-v2-title">

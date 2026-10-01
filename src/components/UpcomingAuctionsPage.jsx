@@ -78,16 +78,6 @@ export default function UpcomingAuctionsPage({
               <p className="upcoming-desc">
                 Explore scheduled vehicle lots from banks, insurance corporations, and fleet consignors. Register early to inspect in-yard and participate in bidding.
               </p>
-              <div className="upcoming-hero-badges">
-                <span className="upcoming-hero-badge">
-                  <span className="upcoming-badge-dot" />
-                  Verified Fleet & Repo Lots
-                </span>
-                <span className="upcoming-hero-badge">
-                  <span className="upcoming-badge-dot" />
-                  Detailed Yard Inspection
-                </span>
-              </div>
             </div>
           </div>
         </div>

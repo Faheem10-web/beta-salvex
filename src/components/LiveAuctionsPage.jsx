@@ -3,19 +3,15 @@ import {
   Search,
   Filter,
   Flame,
-  Clock,
   Heart,
   Gavel,
   ArrowRight,
-  ShieldCheck,
   Fuel,
   Gauge,
   MapPin,
   AlertCircle,
   RotateCcw,
   CheckCircle2,
-  Lock,
-  Truck,
   Car,
   SlidersHorizontal,
   ChevronDown,
@@ -153,66 +149,12 @@ export default function LiveAuctionsPage({
         </div>
 
         <div className="salvex-container live-hero-content">
-          <div className="live-hero-breadcrumb">
-            <span className="crumb-root">SALVEX AUCTION</span>
-            <span className="crumb-sep">/</span>
-            <span className="crumb-current">LIVE BIDDING ARENA</span>
-          </div>
-
           <div className="live-hero-inner">
             <div className="live-hero-left">
-              <div className="live-realtime-pill">
-                <span className="live-pulsing-circle" />
-                <span className="live-pill-text">REAL-TIME BIDDING CONSOLE</span>
-                <span className="live-pill-count">{liveVehicles.length} Lots Active</span>
-                <span className="live-pill-sync">● SUB-SECOND SYNC</span>
-              </div>
               <h1 className="live-hero-title">Live Vehicle Auctions</h1>
               <p className="live-hero-subtitle">
                 Place transparent bids on verified bank repossessions, insurance salvage, and corporate asset liquidations in live certified online auctions with instant escrow settlement.
               </p>
-            </div>
-
-            <div className="live-hero-stats">
-              <div className="hero-stat-card">
-                <div className="hero-stat-icon-wrap">
-                  <ShieldCheck size={18} className="hero-stat-icon" />
-                </div>
-                <div className="hero-stat-info">
-                  <span className="hero-stat-val">100%</span>
-                  <span className="hero-stat-lbl">Digital Inspection</span>
-                </div>
-              </div>
-
-              <div className="hero-stat-card">
-                <div className="hero-stat-icon-wrap">
-                  <Clock size={18} className="hero-stat-icon" />
-                </div>
-                <div className="hero-stat-info">
-                  <span className="hero-stat-val">120s</span>
-                  <span className="hero-stat-lbl">Soft-Snipe Overtime</span>
-                </div>
-              </div>
-
-              <div className="hero-stat-card">
-                <div className="hero-stat-icon-wrap">
-                  <Lock size={18} className="hero-stat-icon" />
-                </div>
-                <div className="hero-stat-info">
-                  <span className="hero-stat-val">Escrow</span>
-                  <span className="hero-stat-lbl">RBI Regulated Conduit</span>
-                </div>
-              </div>
-
-              <div className="hero-stat-card">
-                <div className="hero-stat-icon-wrap">
-                  <Truck size={18} className="hero-stat-icon" />
-                </div>
-                <div className="hero-stat-info">
-                  <span className="hero-stat-val">28 States</span>
-                  <span className="hero-stat-lbl">Pan-India Delivery</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
