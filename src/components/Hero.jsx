@@ -3,12 +3,12 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const HERO_SLIDES = [
   {
-    url: '/images/hero_porsche_gt3.jpg',
-    alt: 'Salvex Auction Fleet - Porsche 911 GT3 Studio Edition'
+    url: '/images/hero.png',
+    alt: 'Salvex Auction Fleet - Mercedes-AMG GT Coupe'
   },
   {
-    url: 'https://i.pinimg.com/1200x/1e/c7/94/1ec794484526bfc3428cc56e9248d159.jpg',
-    alt: 'Salvex Auction Fleet - Audi RS5 Sport Coupe'
+    url: '/images/hero_porsche_gt3.jpg',
+    alt: 'Salvex Auction Fleet - Porsche 911 GT3 Studio Edition'
   }
 ];
 
