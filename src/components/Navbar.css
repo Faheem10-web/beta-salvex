@@ -11,11 +11,11 @@
   z-index: 1000;
   background-color: #070B14;
   border-bottom: 1px solid rgba(226, 232, 240, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+  box-shadow: none;
   user-select: none;
   transform: translateY(0);
   will-change: transform;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
   overflow: visible;
 }
 
@@ -27,7 +27,7 @@
 
 .salvex-two-row-navbar.navbar-scrolled {
   background-color: #070B14;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+  box-shadow: none;
   border-bottom: 1px solid rgba(226, 232, 240, 0.12);
 }
 
