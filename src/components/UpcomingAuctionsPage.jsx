@@ -56,9 +56,10 @@ export default function UpcomingAuctionsPage({
       {/* 01 HERO SECTION WITH BACKGROUND IMAGE */}
       <section className="upcoming-hero">
         <div className="upcoming-hero-backdrop" aria-hidden="true">
+          <div className="upcoming-hero-ambient-glow" />
           <img
-            src="https://i.pinimg.com/736x/40/e7/b9/40e7b98db5c623936f6a7b92346c55a8.jpg"
-            alt="Upcoming Auctions Fleet"
+            src="https://i.pinimg.com/736x/cd/5e/64/cd5e646feb3b79cc1777857873fa18f6.jpg"
+            alt="Upcoming Auctions Luxury Wheel"
             className="upcoming-hero-bg-img"
           />
           <div className="upcoming-hero-overlay" />
@@ -68,14 +69,26 @@ export default function UpcomingAuctionsPage({
 
         <div className="salvex-container upcoming-hero-content">
           <div className="upcoming-hero-inner">
-            <span className="upcoming-tagline">
-              <Calendar size={14} />
-              PRE-AUCTION CATALOGUE
-            </span>
-            <h1 className="upcoming-title">Upcoming Auctions</h1>
-            <p className="upcoming-desc">
-              Explore scheduled vehicle lots from banks, insurance corporations, and fleet consignors. Register early to inspect in-yard and participate in bidding.
-            </p>
+            <div className="upcoming-hero-text">
+              <span className="upcoming-tagline">
+                <Calendar size={14} />
+                PRE-AUCTION CATALOGUE
+              </span>
+              <h1 className="upcoming-title">Upcoming Auctions</h1>
+              <p className="upcoming-desc">
+                Explore scheduled vehicle lots from banks, insurance corporations, and fleet consignors. Register early to inspect in-yard and participate in bidding.
+              </p>
+              <div className="upcoming-hero-badges">
+                <span className="upcoming-hero-badge">
+                  <span className="upcoming-badge-dot" />
+                  Verified Fleet & Repo Lots
+                </span>
+                <span className="upcoming-hero-badge">
+                  <span className="upcoming-badge-dot" />
+                  Detailed Yard Inspection
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
