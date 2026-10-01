@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 const HERO_SLIDES = [
   {
@@ -21,14 +21,6 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
     }, 5500);
     return () => clearInterval(timer);
   }, []);
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-  };
 
   return (
     <section className="salvex-hero-section" id="home">
@@ -60,43 +52,6 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
             aria-label={`Slide ${idx + 1}`}
           />
         ))}
-      </div>
-
-      {/* Floating Bottom Slider Controls Pill (Mobile 425px & interactive control) */}
-      <div className="hero-slider-controls" aria-label="Hero slider controls">
-        <button
-          type="button"
-          className="hero-slider-ctrl-btn"
-          onClick={handlePrevSlide}
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft size={16} />
-        </button>
-
-        <div className="hero-slide-dots-inline">
-          {HERO_SLIDES.map((_, idx) => (
-            <button
-              key={idx}
-              type="button"
-              className={`hero-slide-dot ${idx === currentSlide ? 'active' : ''}`}
-              onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-
-        <span className="hero-slider-counter">
-          <span className="hero-slider-counter-active">0{currentSlide + 1}</span> / 0{HERO_SLIDES.length}
-        </span>
-
-        <button
-          type="button"
-          className="hero-slider-ctrl-btn"
-          onClick={handleNextSlide}
-          aria-label="Next Slide"
-        >
-          <ChevronRight size={16} />
-        </button>
       </div>
 
       <div className="hero-content-wrapper">
