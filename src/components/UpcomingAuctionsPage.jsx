@@ -8,7 +8,10 @@ import {
   ShieldCheck,
   CheckCircle2,
   Filter,
-  Car
+  Car,
+  X,
+  RotateCcw,
+  Search
 } from 'lucide-react';
 
 export default function UpcomingAuctionsPage({
@@ -16,13 +19,38 @@ export default function UpcomingAuctionsPage({
   onSetReminder,
   onViewVehicle
 }) {
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('All');
   const [selectedMake, setSelectedMake] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [remindedIds, setRemindedIds] = useState([]);
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  const activeFilterCount = [
+    selectedLocation !== 'All',
+    selectedMake !== 'All',
+    selectedCategory !== 'All',
+    searchQuery.trim().length > 0
+  ].filter(Boolean).length;
+
+  const handleResetFilters = () => {
+    setSearchQuery('');
+    setSelectedLocation('All');
+    setSelectedMake('All');
+    setSelectedCategory('All');
+  };
 
   const filteredAuctions = useMemo(() => {
     return auctions.filter((auc) => {
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const match =
+          auc.title?.toLowerCase().includes(q) ||
+          auc.location?.toLowerCase().includes(q) ||
+          auc.category?.toLowerCase().includes(q) ||
+          auc.id?.toLowerCase().includes(q);
+        if (!match) return false;
+      }
       if (selectedLocation !== 'All' && !auc.location?.toLowerCase().includes(selectedLocation.toLowerCase())) {
         return false;
       }
@@ -34,7 +62,7 @@ export default function UpcomingAuctionsPage({
       }
       return true;
     });
-  }, [auctions, selectedLocation, selectedMake, selectedCategory]);
+  }, [auctions, searchQuery, selectedLocation, selectedMake, selectedCategory]);
 
   const handleReminderToggle = (auc) => {
     const isReminded = remindedIds.includes(auc.id);
@@ -82,6 +110,39 @@ export default function UpcomingAuctionsPage({
       {/* 02 FILTERS BAR */}
       <section className="upcoming-filters-bar">
         <div className="salvex-container">
+          {/* Quick Stats Pill & Mobile Filter Trigger */}
+          <div className="card-page-header-actions">
+            <span className="card-page-stats-pill">
+              Showing <strong>{filteredAuctions.length}</strong> of {auctions.length} Vehicles
+            </span>
+            <button
+              type="button"
+              className={`card-page-filter-btn ${activeFilterCount > 0 ? 'has-filters' : ''}`}
+              onClick={() => setMobileFilterOpen(true)}
+              aria-label="Open Filters"
+            >
+              <Filter size={14} />
+              <span>Filter</span>
+              {activeFilterCount > 0 && (
+                <span className="filter-badge-count">{activeFilterCount}</span>
+              )}
+            </button>
+          </div>
+
+          {/* Search Bar */}
+          <div className="card-page-search-bar">
+            <div className="card-page-search-wrap">
+              <Search size={16} className="card-page-search-icon" />
+              <input
+                type="text"
+                placeholder="Search upcoming lots by make, model, location..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="card-page-search-input"
+              />
+            </div>
+          </div>
+
           <div className="upcoming-filters-wrap">
             <div className="filter-group">
               <label>Location / Stockyard:</label>
@@ -231,6 +292,108 @@ export default function UpcomingAuctionsPage({
         </div>
       </section>
 
+      {/* MOBILE FILTER MODAL SHEET */}
+      {mobileFilterOpen && (
+        <div className="mobile-filter-modal" role="dialog" aria-modal="true">
+          <div
+            className="mobile-filter-backdrop"
+            onClick={() => setMobileFilterOpen(false)}
+          />
+          <div className="mobile-filter-sheet">
+            <div className="mobile-sheet-drag-handle" />
+            <div className="mobile-sheet-header">
+              <span className="mobile-sheet-title">
+                <Filter size={16} color="#DC2626" />
+                Filter Upcoming Auctions
+                {activeFilterCount > 0 && (
+                  <span className="filter-badge-count">{activeFilterCount}</span>
+                )}
+              </span>
+              <button
+                type="button"
+                className="mobile-sheet-close-btn"
+                onClick={() => setMobileFilterOpen(false)}
+                aria-label="Close filters"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="mobile-sheet-content">
+              {/* Location */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Location / Stockyard</label>
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="upcoming-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  <option value="All">All Yard Hubs</option>
+                  <option value="Delhi">Delhi NCR Hub</option>
+                  <option value="Bengaluru">Bengaluru Hub</option>
+                  <option value="Mumbai">Mumbai Yard</option>
+                  <option value="Chennai">Chennai Hub</option>
+                </select>
+              </div>
+
+              {/* Make */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Make</label>
+                <select
+                  value={selectedMake}
+                  onChange={(e) => setSelectedMake(e.target.value)}
+                  className="upcoming-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  <option value="All">All Makes</option>
+                  <option value="Mercedes">Mercedes-Benz</option>
+                  <option value="BMW">BMW</option>
+                  <option value="Audi">Audi</option>
+                  <option value="Porsche">Porsche</option>
+                  <option value="Land Rover">Land Rover</option>
+                </select>
+              </div>
+
+              {/* Category */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Category</label>
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="upcoming-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  <option value="All">All Categories</option>
+                  <option value="Luxury SUVs">Luxury SUVs</option>
+                  <option value="Luxury Sedans">Luxury Sedans</option>
+                  <option value="Bank Repossession">Bank Repossession</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mobile-sheet-footer">
+              {activeFilterCount > 0 && (
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="filter-clear-all-btn"
+                  style={{ padding: '0 14px', height: '46px', border: '1px solid #CBD5E1', borderRadius: '10px' }}
+                >
+                  <RotateCcw size={13} /> Reset
+                </button>
+              )}
+              <button
+                type="button"
+                className="mobile-apply-btn"
+                onClick={() => setMobileFilterOpen(false)}
+              >
+                Show {filteredAuctions.length} {filteredAuctions.length === 1 ? 'Auction' : 'Auctions'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

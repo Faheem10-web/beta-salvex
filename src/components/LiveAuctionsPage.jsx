@@ -35,6 +35,7 @@ export default function LiveAuctionsPage({
   const [selectedLocation, setSelectedLocation] = useState('All');
   const [selectedCondition, setSelectedCondition] = useState('All');
   const [sortBy, setSortBy] = useState('ending-soon');
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   // Categories list
   const categories = [
@@ -179,6 +180,27 @@ export default function LiveAuctionsPage({
 
             {/* Main Interactive Controls Bar */}
             <div className="live-controls-wrap">
+              {/* Quick Stats Pill & Mobile Filter Trigger (Mobile & Responsive) */}
+              <div className="card-page-header-actions">
+                <span className="card-page-stats-pill">
+                  Showing <strong>{liveVehicles.length}</strong> of {vehicles.length} Vehicles
+                </span>
+                <button
+                  type="button"
+                  className={`card-page-filter-btn ${hasActiveFilters ? 'has-filters' : ''}`}
+                  onClick={() => setMobileFilterOpen(true)}
+                  aria-label="Open Filters"
+                >
+                  <Filter size={14} />
+                  <span>Filter</span>
+                  {hasActiveFilters && (
+                    <span className="filter-badge-count">
+                      {[selectedCategory !== 'All', selectedMake !== 'All', selectedLocation !== 'All', selectedCondition !== 'All', searchQuery.trim().length > 0].filter(Boolean).length}
+                    </span>
+                  )}
+                </button>
+              </div>
+
               {/* Search Box */}
               <div className="live-search-box">
                 <Search size={16} className="search-icon" />
@@ -379,6 +401,138 @@ export default function LiveAuctionsPage({
           </div>
         </div>
       </section>
+
+      {/* MOBILE FILTER MODAL SHEET */}
+      {mobileFilterOpen && (
+        <div className="mobile-filter-modal" role="dialog" aria-modal="true">
+          <div
+            className="mobile-filter-backdrop"
+            onClick={() => setMobileFilterOpen(false)}
+          />
+          <div className="mobile-filter-sheet">
+            <div className="mobile-sheet-drag-handle" />
+            <div className="mobile-sheet-header">
+              <span className="mobile-sheet-title">
+                <Filter size={16} color="#DC2626" />
+                Filter Live Auctions
+                {hasActiveFilters && (
+                  <span className="filter-badge-count">
+                    {[selectedCategory !== 'All', selectedMake !== 'All', selectedLocation !== 'All', selectedCondition !== 'All', searchQuery.trim().length > 0].filter(Boolean).length}
+                  </span>
+                )}
+              </span>
+              <button
+                type="button"
+                className="mobile-sheet-close-btn"
+                onClick={() => setMobileFilterOpen(false)}
+                aria-label="Close filters"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="mobile-sheet-content">
+              {/* Category */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Category</label>
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="live-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.id}>{c.label}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Make */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Make</label>
+                <select
+                  value={selectedMake}
+                  onChange={(e) => setSelectedMake(e.target.value)}
+                  className="live-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  {makes.map((m) => (
+                    <option key={m} value={m}>{m === 'All' ? 'All Makes' : m}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Yard Location */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Yard Hub</label>
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="live-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  {locations.map((loc) => (
+                    <option key={loc} value={loc}>{loc === 'All' ? 'All Yards' : loc}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Condition */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Condition</label>
+                <select
+                  value={selectedCondition}
+                  onChange={(e) => setSelectedCondition(e.target.value)}
+                  className="live-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  <option value="All">All Conditions</option>
+                  <option value="Run & Drive">Run & Drive</option>
+                  <option value="Minor Damage">Minor Damage / Scratch</option>
+                  <option value="Repossessed">Bank Repossessed</option>
+                  <option value="Certified">Certified Grade A</option>
+                </select>
+              </div>
+
+              {/* Sort By */}
+              <div className="filter-group-block">
+                <label className="filter-group-label" style={{ fontWeight: 600, fontSize: '13px', marginBottom: '6px', display: 'block' }}>Sort</label>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="live-select"
+                  style={{ width: '100%', height: '42px' }}
+                >
+                  <option value="ending-soon">Ending Soonest</option>
+                  <option value="most-bids">Most Active (Bids)</option>
+                  <option value="lowest-bid">Lowest Current Bid</option>
+                  <option value="highest-bid">Highest Current Bid</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mobile-sheet-footer">
+              {hasActiveFilters && (
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="filter-clear-all-btn"
+                  style={{ padding: '0 14px', height: '46px', border: '1px solid #CBD5E1', borderRadius: '10px' }}
+                >
+                  <RotateCcw size={13} /> Reset
+                </button>
+              )}
+              <button
+                type="button"
+                className="mobile-apply-btn"
+                onClick={() => setMobileFilterOpen(false)}
+              >
+                Show {liveVehicles.length} {liveVehicles.length === 1 ? 'Vehicle' : 'Vehicles'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
