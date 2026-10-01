@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import SalvexLogo from './SalvexLogo';
 import {
   Search,
-  PlusCircle,
   User,
+  Heart,
   ArrowRight,
+  ChevronDown,
+  Truck,
+  Headphones,
   Menu,
-  X
+  X,
+  PlusCircle
 } from 'lucide-react';
 import './Navbar.css';
 
@@ -16,36 +20,41 @@ export default function Navbar({
   onOpenBidderModal,
   onOpenSellerModal,
   onOpenSearchModal,
-  onSearchSubmitQuery
+  onSearchSubmitQuery,
+  savedCount = 0,
+  onOpenSavedModal
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCurrency, setSelectedCurrency] = useState('INR ₹');
+  const [currencyDropdownOpen, setCurrencyDropdownOpen] = useState(false);
+
+  const currencies = [
+    { code: 'INR', label: 'INR ₹' },
+    { code: 'USD', label: 'USD $' },
+    { code: 'AED', label: 'AED د.إ' },
+    { code: 'EUR', label: 'EUR €' }
+  ];
 
   useEffect(() => {
     let lastY = window.scrollY;
 
     const handleScroll = () => {
       const currentY = window.scrollY;
-
-      // Scrolled styling (backdrop blur & shadow)
       setIsScrolled(currentY > 20);
 
-      // Do not auto-hide if mobile menu is currently open
       if (mobileMenuOpen) {
         setIsVisible(true);
         return;
       }
 
-      // Always show navbar near the top of the page
       if (currentY < 80) {
         setIsVisible(true);
-      } else if (currentY > lastY + 8) {
-        // Scrolling DOWN -> smoothly hide navbar
+      } else if (currentY > lastY + 12) {
         setIsVisible(false);
-      } else if (currentY < lastY - 8) {
-        // Scrolling UP -> reveal navbar
+      } else if (currentY < lastY - 12) {
         setIsVisible(true);
       }
 
@@ -74,9 +83,7 @@ export default function Navbar({
       onNavigate(id);
     } else {
       const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -85,134 +92,195 @@ export default function Navbar({
     if (onSearchSubmitQuery) {
       onSearchSubmitQuery(searchQuery);
     } else if (onNavigate) {
-      onNavigate('live-auctions');
+      onNavigate('vehicles');
     }
   };
 
   return (
     <>
       <header
-        className={`salvex-two-row-navbar ${isScrolled ? 'navbar-scrolled' : ''} ${!isVisible ? 'navbar-hidden' : ''}`}
+        className={`salvex-master-navbar ${isScrolled ? 'navbar-scrolled' : ''} ${!isVisible ? 'navbar-hidden' : ''}`}
         id="main-navbar"
       >
-        {/* Subtle red ambient glow toward the right side as in reference */}
-        <div className="navbar-red-ambient" aria-hidden="true" />
+        {/* ==================================================================
+            TIER 0: CRIMSON RED ANNOUNCEMENT BAR
+            ================================================================== */}
+        <div className="navbar-announcement-bar">
+          <div className="salvex-nav-container announcement-container">
+            <div className="announcement-left" />
 
-        {/* ------------------------------------------------------------------
-            ROW 1: BRAND + SEARCH + UTILITY / ACCOUNT ACTIONS (Dark Navy)
-            ------------------------------------------------------------------ */}
-        <div className="navbar-row navbar-row-primary">
-          <div className="navbar-container">
-            {/* LEFT: Logo */}
+            <div className="announcement-center">
+              <Truck size={13} className="announcement-icon" />
+              <span>New Arrivals Added Daily &nbsp;|&nbsp; <strong>Register Now to Start Bidding</strong></span>
+            </div>
+
+            <div className="announcement-right">
+              <Headphones size={13} className="announcement-icon" />
+              <span>Need Help? <strong>+91 98765 43210</strong></span>
+            </div>
+          </div>
+        </div>
+
+        {/* ==================================================================
+            TIER 1: MAIN BRAND HEADER (WHITE)
+            ================================================================== */}
+        <div className="navbar-middle-row">
+          <div className="salvex-nav-container middle-row-container">
+            {/* LEFT: Currency Selector */}
+            <div className="navbar-currency-wrap">
+              <button
+                type="button"
+                className="navbar-currency-btn"
+                onClick={() => setCurrencyDropdownOpen(!currencyDropdownOpen)}
+                aria-label="Select currency"
+              >
+                <span>{selectedCurrency}</span>
+                <ChevronDown size={14} className={`currency-chevron ${currencyDropdownOpen ? 'open' : ''}`} />
+              </button>
+
+              {currencyDropdownOpen && (
+                <div className="navbar-currency-dropdown">
+                  {currencies.map((curr) => (
+                    <button
+                      key={curr.code}
+                      type="button"
+                      className={`currency-option ${selectedCurrency === curr.label ? 'active' : ''}`}
+                      onClick={() => {
+                        setSelectedCurrency(curr.label);
+                        setCurrencyDropdownOpen(false);
+                      }}
+                    >
+                      {curr.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* CENTER: Salvex Auction Brand Logo */}
             <div
-              className="navbar-brand-wrap"
+              className="navbar-center-brand"
               onClick={() => handleLinkClick('home')}
               role="button"
               tabIndex={0}
               title="Salvex Auction Home"
             >
-              <SalvexLogo variant="dark" />
+              <SalvexLogo variant="light" height={38} />
             </div>
 
-            {/* CENTER: SEARCH AREA (White Search Box + Red Button) */}
-            <form className="navbar-search-form" onSubmit={handleSearchSubmit}>
-              <div className="navbar-search-field-wrap">
-                <Search size={18} className="navbar-search-icon" />
+            {/* RIGHT: Search Pill + Wishlist + Login + Register CTA */}
+            <div className="navbar-middle-actions">
+              {/* Pill Search Input */}
+              <form className="navbar-search-pill-form" onSubmit={handleSearchSubmit}>
+                <Search size={16} className="search-pill-icon" />
                 <input
                   type="text"
-                  placeholder="Search by Make, Model, Damage, Color, VIN, and more..."
+                  placeholder="Search vehicles, make, model, year..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="navbar-search-input"
+                  className="search-pill-input"
                   id="nav-search-input"
                 />
-              </div>
+              </form>
 
-              <button
-                type="submit"
-                className="btn-search-inventory"
-                id="btn-search-inventory"
-              >
-                <Search size={16} strokeWidth={2.2} className="btn-search-icon" />
-                <span>Search Inventory</span>
-              </button>
-            </form>
-
-            {/* RIGHT SIDE: UTILITY CONTROLS */}
-            <div className="navbar-utility-group">
-              {/* List Your Vehicle: Outline button */}
+              {/* List Your Vehicle Button */}
               <button
                 type="button"
                 className="btn-nav-list-vehicle"
                 onClick={onOpenSellerModal}
                 id="nav-list-vehicle-btn"
+                title="List Your Vehicle for Auction"
               >
-                <PlusCircle size={16} strokeWidth={2} />
+                <PlusCircle size={15} strokeWidth={2} />
                 <span>List Your Vehicle</span>
               </button>
 
-              {/* Login: User outline + Login */}
+              {/* Wishlist / Saved Heart Icon */}
               <button
                 type="button"
-                className="btn-nav-login"
-                onClick={onOpenBidderModal}
-                id="nav-login-btn"
+                className="navbar-action-icon-btn"
+                onClick={onOpenSavedModal}
+                title="Saved Vehicles"
+                aria-label="Saved vehicles"
               >
-                <User size={16} strokeWidth={2} />
-                <span>Login</span>
+                <Heart size={20} strokeWidth={1.8} />
+                {savedCount > 0 && (
+                  <span className="navbar-action-badge">{savedCount}</span>
+                )}
               </button>
 
-              {/* Register as Bidder: Main CTA */}
+              {/* User Login Icon */}
               <button
                 type="button"
-                className="btn-nav-register-cta"
+                className="navbar-action-icon-btn"
+                onClick={onOpenBidderModal}
+                title="Account Login"
+                aria-label="Account Login"
+              >
+                <User size={20} strokeWidth={1.8} />
+              </button>
+
+              {/* Register as Bidder Red Button */}
+              <button
+                type="button"
+                className="btn-register-red"
                 onClick={onOpenBidderModal}
                 id="nav-register-cta"
               >
                 <span>Register as Bidder</span>
-                <ArrowRight size={15} strokeWidth={2.2} className="btn-arrow" />
+                <ArrowRight size={15} strokeWidth={2.2} />
               </button>
             </div>
 
-            {/* Mobile Top Row Icons (visible on mobile only) */}
-            <div className="navbar-mobile-top-actions">
+            {/* Mobile Top Actions (visible only on mobile) */}
+            <div className="navbar-mobile-controls">
               <button
                 type="button"
-                className="mobile-icon-btn"
+                className="mobile-control-icon"
                 onClick={onOpenSearchModal}
                 aria-label="Search"
               >
-                <Search size={20} strokeWidth={2.2} />
+                <Search size={20} />
               </button>
 
               <button
                 type="button"
-                className="mobile-icon-btn"
+                className="mobile-control-icon"
+                onClick={onOpenSavedModal}
+                aria-label="Saved"
+              >
+                <Heart size={20} />
+                {savedCount > 0 && <span className="mobile-badge">{savedCount}</span>}
+              </button>
+
+              <button
+                type="button"
+                className="mobile-control-icon"
                 onClick={onOpenBidderModal}
                 aria-label="Account Login"
               >
-                <User size={20} strokeWidth={2.2} />
+                <User size={20} />
               </button>
 
               <button
                 type="button"
-                className="navbar-hamburger-btn"
+                className="navbar-hamburger-red"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
                 id="navbar-hamburger"
               >
-                {mobileMenuOpen ? <X size={22} strokeWidth={2.4} /> : <Menu size={22} strokeWidth={2.4} />}
+                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* ------------------------------------------------------------------
-            ROW 2: MAIN NAVIGATION (52px height, Aligned to same container)
-            ------------------------------------------------------------------ */}
-        <div className="navbar-row navbar-row-secondary">
-          <div className="navbar-container">
-            <nav className="navbar-links-left" aria-label="Main Navigation">
+        {/* ==================================================================
+            TIER 2: NAVIGATION LINKS BAR (WHITE WITH BOTTOM BORDER)
+            ================================================================== */}
+        <div className="navbar-links-row">
+          <div className="salvex-nav-container links-row-container">
+            <nav className="navbar-links-center" aria-label="Main Navigation">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
@@ -220,17 +288,14 @@ export default function Navbar({
                     key={item.id}
                     type="button"
                     onClick={() => handleLinkClick(item.id)}
-                    className={`nav-row2-link ${isActive ? 'nav-row2-active' : ''}`}
-                    id={`nav-row2-${item.id}`}
+                    className={`nav-link-btn ${isActive ? 'nav-link-active' : ''}`}
+                    id={`nav-link-${item.id}`}
                   >
                     <span>{item.label}</span>
-
                     {item.isLive && (
                       <span className="nav-live-capsule">LIVE</span>
                     )}
-
-                    {/* Active Underline: 28-32px wide, 2px height, #DC2626 */}
-                    {isActive && <span className="nav-active-underline" />}
+                    {isActive && <span className="nav-bottom-indicator" />}
                   </button>
                 );
               })}
@@ -239,9 +304,9 @@ export default function Navbar({
         </div>
       </header>
 
-      {/* ------------------------------------------------------------------
+      {/* ==================================================================
           MOBILE SLIDE-OUT DRAWER
-          ------------------------------------------------------------------ */}
+          ================================================================== */}
       <div
         className={`mobile-menu-backdrop ${mobileMenuOpen ? 'mobile-menu-open' : ''}`}
         onClick={() => setMobileMenuOpen(false)}
@@ -252,7 +317,7 @@ export default function Navbar({
         aria-label="Mobile Navigation"
       >
         <div className="mobile-drawer-header">
-          <SalvexLogo variant="dark" height={32} />
+          <SalvexLogo variant="light" height={34} />
           <button
             type="button"
             className="mobile-close-btn"
@@ -264,7 +329,6 @@ export default function Navbar({
         </div>
 
         <div className="mobile-drawer-body">
-          {/* Main Navigation Links */}
           <nav className="mobile-nav-list">
             {navItems.map((item) => (
               <button
@@ -281,15 +345,16 @@ export default function Navbar({
             ))}
           </nav>
 
-          {/* Divider */}
           <div className="mobile-drawer-divider" />
 
-          {/* CTAs */}
           <div className="mobile-drawer-ctas">
             <button
               type="button"
-              className="btn-nav-list-vehicle w-full"
-              onClick={() => { setMobileMenuOpen(false); onOpenSellerModal(); }}
+              className="btn-drawer-outline"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenSellerModal) onOpenSellerModal();
+              }}
             >
               <PlusCircle size={15} />
               <span>List Your Vehicle</span>
@@ -297,8 +362,11 @@ export default function Navbar({
 
             <button
               type="button"
-              className="btn-nav-login w-full"
-              onClick={() => { setMobileMenuOpen(false); onOpenBidderModal(); }}
+              className="btn-drawer-outline"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenBidderModal) onOpenBidderModal();
+              }}
             >
               <User size={15} />
               <span>Login</span>
@@ -306,8 +374,11 @@ export default function Navbar({
 
             <button
               type="button"
-              className="btn-nav-register-cta w-full"
-              onClick={() => { setMobileMenuOpen(false); onOpenBidderModal(); }}
+              className="btn-register-red w-full"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenBidderModal) onOpenBidderModal();
+              }}
             >
               <span>Register as Bidder</span>
               <ArrowRight size={15} />

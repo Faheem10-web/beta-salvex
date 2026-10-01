@@ -376,8 +376,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 130px;
-  padding-bottom: 80px;
+  padding-top: 165px;
+  padding-bottom: 70px;
   background-color: #070B14;
   overflow: hidden;
 }
@@ -4084,7 +4084,7 @@ a.footer-contact-item:hover {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 84px !important;
+    padding-top: 108px !important;
     padding-bottom: 24px !important;
   }
 
