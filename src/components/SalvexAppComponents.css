@@ -271,6 +271,61 @@
   z-index: 1;
 }
 
+/* --------------------------------------------------------------------------
+   UPCOMING AUCTIONS HERO WITH DIRECT URL BACKGROUND IMAGE
+   -------------------------------------------------------------------------- */
+.upcoming-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #070B14;
+  padding: 136px 0 54px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+}
+
+.upcoming-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.upcoming-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: brightness(0.42) contrast(1.15);
+}
+
+.upcoming-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 11, 20, 0.45) 0%, rgba(7, 11, 20, 0.90) 100%);
+}
+
+.upcoming-hero-top-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(7, 11, 20, 0.85) 0%, transparent 100%);
+}
+
+.upcoming-hero-bottom-vignette {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(0deg, rgba(7, 11, 20, 0.95) 0%, transparent 100%);
+}
+
+.upcoming-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 .live-auctions-hero .hero-stat-card {
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(12px);

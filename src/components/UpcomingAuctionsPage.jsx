@@ -53,9 +53,20 @@ export default function UpcomingAuctionsPage({
 
   return (
     <div className="salvex-upcoming-auctions-page">
-      {/* 01 HERO SECTION */}
+      {/* 01 HERO SECTION WITH BACKGROUND IMAGE */}
       <section className="upcoming-hero">
-        <div className="salvex-container">
+        <div className="upcoming-hero-backdrop" aria-hidden="true">
+          <img
+            src="https://i.pinimg.com/736x/40/e7/b9/40e7b98db5c623936f6a7b92346c55a8.jpg"
+            alt="Upcoming Auctions Fleet"
+            className="upcoming-hero-bg-img"
+          />
+          <div className="upcoming-hero-overlay" />
+          <div className="upcoming-hero-top-vignette" />
+          <div className="upcoming-hero-bottom-vignette" />
+        </div>
+
+        <div className="salvex-container upcoming-hero-content">
           <div className="upcoming-hero-inner">
             <span className="upcoming-tagline">
               <Calendar size={14} />

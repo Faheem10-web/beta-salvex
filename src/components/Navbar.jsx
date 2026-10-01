@@ -114,9 +114,6 @@ export default function Navbar({
               <SalvexLogo variant="dark" />
             </div>
 
-            {/* Subtle vertical divider after the logo */}
-            <div className="navbar-logo-divider" aria-hidden="true" />
-
             {/* CENTER: SEARCH AREA (White Search Box + Red Button) */}
             <form className="navbar-search-form" onSubmit={handleSearchSubmit}>
               <div className="navbar-search-field-wrap">
@@ -153,9 +150,6 @@ export default function Navbar({
                 <PlusCircle size={16} strokeWidth={2} />
                 <span>List Your Vehicle</span>
               </button>
-
-              {/* Vertical divider */}
-              <div className="navbar-sub-divider" aria-hidden="true" />
 
               {/* Login: User outline + Login */}
               <button

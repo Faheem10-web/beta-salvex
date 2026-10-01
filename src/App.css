@@ -371,39 +371,59 @@
    -------------------------------------------------------------------------- */
 .salvex-hero-section {
   position: relative;
-  min-height: 720px;
+  min-height: clamp(680px, 80vh, 850px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 144px;
-  padding-bottom: 70px;
+  padding-top: 155px;
+  padding-bottom: 90px;
   background-color: var(--color-dark-navy);
   overflow: hidden;
 }
 
 .hero-backdrop {
   position: absolute;
-  top: -40px;
-  bottom: -40px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .hero-bg-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 36%;
-  filter: contrast(1.05) brightness(0.92);
-  will-change: transform;
+  object-position: right 45%;
+  filter: contrast(1.05) brightness(0.96);
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 5.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.hero-bg-image.hero-bg-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-bg-image.hero-bg-inactive {
+  opacity: 0;
+  transform: scale(1.05);
+  z-index: 0;
 }
 
 .hero-dark-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 45% 55%, rgba(7, 11, 20, 0.3) 0%, rgba(7, 11, 20, 0.88) 75%);
+  z-index: 2;
+  background: linear-gradient(90deg, #070B14 0%, rgba(7, 11, 20, 0.95) 34%, rgba(7, 11, 20, 0.72) 55%, rgba(7, 11, 20, 0.22) 80%, transparent 100%);
+  pointer-events: none;
 }
 
 .hero-top-vignette {
@@ -411,8 +431,10 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 240px;
-  background: linear-gradient(180deg, var(--color-dark-navy) 0%, rgba(7, 11, 20, 0.8) 50%, transparent 100%);
+  height: 200px;
+  z-index: 3;
+  background: linear-gradient(180deg, var(--color-dark-navy) 0%, rgba(7, 11, 20, 0.75) 50%, transparent 100%);
+  pointer-events: none;
 }
 
 .hero-bottom-vignette {
@@ -420,19 +442,91 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 170px;
+  z-index: 3;
   background: linear-gradient(0deg, var(--color-primary-navy) 0%, rgba(11, 18, 32, 0.8) 50%, transparent 100%);
+  pointer-events: none;
 }
 
-.hero-red-ambient-glow {
+/* --------------------------------------------------------------------------
+   HERO SLIDER CONTROLS
+   -------------------------------------------------------------------------- */
+/* Floating Bottom Slider Controls Pill */
+.hero-slider-controls {
   position: absolute;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 100px;
-  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.16) 0%, transparent 70%);
-  filter: blur(40px);
+  bottom: 64px;
+  right: 42px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(7, 11, 20, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 30px;
+  padding: 6px 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-slider-ctrl-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-slider-ctrl-btn:hover {
+  background: #DC2626;
+  border-color: #DC2626;
+  transform: scale(1.05);
+}
+
+.hero-slide-dots-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-slide-dot {
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-slide-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero-slide-dot.active {
+  width: 34px;
+  background: #DC2626;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.7);
+}
+
+.hero-slider-counter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #CBD5E1;
+  padding: 0 2px;
+}
+
+.hero-slider-counter-active {
+  color: #DC2626;
 }
 
 .hero-content-wrapper {
@@ -441,53 +535,65 @@
   width: 100%;
   max-width: var(--max-width-page);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
   will-change: transform, opacity;
 }
 
 .hero-top-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .hero-text-block {
-  max-width: 760px;
+  max-width: 620px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.hero-eyebrow-badge {
-  display: inline-flex;
+/* Eyebrow with red accent bar */
+.hero-eyebrow-row {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  background: rgba(220, 38, 38, 0.12);
-  border: 1px solid rgba(220, 38, 38, 0.25);
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.hero-eyebrow-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-auction-red);
-  border-radius: 50%;
+.hero-eyebrow-accent-line {
+  width: 28px;
+  height: 2.5px;
+  background-color: #DC2626;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
-.hero-eyebrow-text {
-  font-size: 12px;
+.hero-eyebrow-label {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #FCA5A5;
+  letter-spacing: 0.12em;
+  color: #CBD5E1;
   text-transform: uppercase;
 }
 
+/* Main Heading */
 .hero-main-title {
-  font-size: 56px;
-  line-height: 64px;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 60px;
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--color-white);
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.hero-title-highlight {
+  color: #DC2626;
 }
 
 .hero-sub-title {
@@ -497,19 +603,22 @@
   color: #E2E8F0;
   margin-bottom: 20px;
   letter-spacing: -0.015em;
+  text-align: left;
 }
 
 .hero-description {
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 25px;
-  color: #94A3B8;
-  max-width: 640px;
-  margin-bottom: 34px;
+  color: #CBD5E1;
+  max-width: 530px;
+  margin: 0 0 32px 0;
+  text-align: left;
 }
 
 .hero-cta-group {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 16px;
 }
@@ -517,20 +626,60 @@
 .btn-hero-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 30px;
-  font-size: 15.5px;
+  height: 48px;
+  padding: 0 26px;
+  font-size: 14.5px;
   font-weight: 600;
-  color: var(--color-white);
-  background-color: var(--color-auction-red);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  color: #FFFFFF;
+  background-color: #DC2626;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-hero-primary:hover {
-  background-color: var(--color-auction-red-hover);
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.45);
+  background-color: #B91C1C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.55);
+}
+
+.btn-hero-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 24px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 7px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-video:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.hero-video-icon-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
 }
 
 .btn-hero-secondary {

@@ -9,13 +9,15 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #070B14;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.10);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  background-color: rgba(7, 11, 20, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   user-select: none;
   transform: translateY(0);
   will-change: transform;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, backdrop-filter 0.25s ease, box-shadow 0.25s ease;
   overflow: visible;
 }
 
@@ -26,9 +28,10 @@
 }
 
 .salvex-two-row-navbar.navbar-scrolled {
-  background-color: rgba(7, 11, 20, 0.98);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+  background-color: #070B14;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.75);
 }
 
 /* Subtle red ambient glow toward the right side matching reference */
@@ -71,6 +74,7 @@
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
+  margin-right: 24px;
   transition: opacity 0.15s ease;
 }
 
@@ -86,14 +90,9 @@
   display: block;
 }
 
-/* Subtle vertical divider after the logo */
+/* Vertical divider after logo removed */
 .navbar-logo-divider {
-  width: 1px;
-  height: 28px;
-  background-color: rgba(226, 232, 240, 0.15);
-  margin-left: 20px;
-  margin-right: 20px;
-  flex-shrink: 0;
+  display: none;
 }
 
 /* SEARCH AREA: Large white search field + solid Auction Red button */
@@ -218,13 +217,9 @@
   color: #FFFFFF;
 }
 
-/* Vertical divider between List Your Vehicle and Login */
+/* Vertical divider between List Your Vehicle and Login removed */
 .navbar-sub-divider {
-  width: 1px;
-  height: 24px;
-  background-color: rgba(226, 232, 240, 0.14);
-  margin: 0 2px;
-  flex-shrink: 0;
+  display: none;
 }
 
 /* Login: Simple button with User icon, color #CBD5E1 */
@@ -334,8 +329,8 @@
    -------------------------------------------------------------------------- */
 .navbar-row-secondary {
   height: 44px;
-  border-top: 1px solid rgba(226, 232, 240, 0.08);
-  background-color: #070B14;
+  border-top: none;
+  background-color: transparent;
 }
 
 .navbar-links-left {
