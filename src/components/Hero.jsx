@@ -3,12 +3,12 @@ import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const HERO_SLIDES = [
   {
-    url: 'https://i.pinimg.com/1200x/1e/c7/94/1ec794484526bfc3428cc56e9248d159.jpg',
-    alt: 'Salvex Auction Fleet - Audi RS5 Sport Coupe'
+    url: '/images/hero_porsche_gt3.jpg',
+    alt: 'Salvex Auction Fleet - Porsche 911 GT3 Studio Edition'
   },
   {
-    url: 'https://framerusercontent.com/images/BqAnsJYACnJFkmMsTAyRsp8WJiM.jpg?width=1200&height=800',
-    alt: 'Salvex Auction Fleet - Luxury Performance Vehicle'
+    url: 'https://i.pinimg.com/1200x/1e/c7/94/1ec794484526bfc3428cc56e9248d159.jpg',
+    alt: 'Salvex Auction Fleet - Audi RS5 Sport Coupe'
   }
 ];
 
@@ -43,13 +43,26 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
             loading={idx === 0 ? 'eager' : 'lazy'}
           />
         ))}
-        {/* Same feeling unified dark gradient overlays */}
+        {/* Unified dark gradient overlays matching luxury studio reference */}
         <div className="hero-dark-overlay" />
         <div className="hero-top-vignette" />
         <div className="hero-bottom-vignette" />
       </div>
 
-      {/* Floating Bottom Slider Controls Pill */}
+      {/* Centered reference pagination indicators (Desktop Full Screen View) */}
+      <div className="hero-center-pagination" aria-label="Slide indicators">
+        {HERO_SLIDES.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            className={`hero-center-dot ${idx === currentSlide ? 'active' : ''}`}
+            onClick={() => setCurrentSlide(idx)}
+            aria-label={`Slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Floating Bottom Slider Controls Pill (Mobile 425px & interactive control) */}
       <div className="hero-slider-controls" aria-label="Hero slider controls">
         <button
           type="button"
@@ -90,13 +103,14 @@ export default function Hero({ onSearchClick, onLiveAuctionsClick }) {
         <div className="hero-top-row">
           {/* Left Column: Headings & Conversion CTAs */}
           <div className="hero-text-block">
-            {/* Tagline / Eyebrow with red accent line */}
+            {/* Tagline / Eyebrow with red Welcome badge matching reference */}
             <div className="hero-eyebrow-row">
+              <span className="hero-welcome-badge">Welcome</span>
               <span className="hero-eyebrow-accent-line" />
               <span className="hero-eyebrow-label">TRUSTED VEHICLE AUCTION PLATFORM</span>
             </div>
 
-            {/* Main Heading with Red Dream Car */}
+            {/* Main Heading with Outfit / Plus Jakarta Sans font family */}
             <h1 className="hero-main-title">
               Drive Your<br />
               <span className="hero-title-highlight">Dream Car</span> Today.

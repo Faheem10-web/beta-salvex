@@ -182,7 +182,16 @@ export default function Navbar({
                 onClick={onOpenSearchModal}
                 aria-label="Search"
               >
-                <Search size={19} />
+                <Search size={20} strokeWidth={2.2} />
+              </button>
+
+              <button
+                type="button"
+                className="mobile-icon-btn"
+                onClick={onOpenBidderModal}
+                aria-label="Account Login"
+              >
+                <User size={20} strokeWidth={2.2} />
               </button>
 
               <button
@@ -192,7 +201,7 @@ export default function Navbar({
                 aria-label="Toggle navigation menu"
                 id="navbar-hamburger"
               >
-                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                {mobileMenuOpen ? <X size={22} strokeWidth={2.4} /> : <Menu size={22} strokeWidth={2.4} />}
               </button>
             </div>
           </div>
