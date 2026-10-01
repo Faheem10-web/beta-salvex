@@ -120,11 +120,11 @@ export default function PageLoader({ onLoadingComplete }) {
         {/* Existing Salvex Auction brand logo */}
         <div className="loader-logo-wrapper" ref={logoRef}>
           <img
-            src="/images/whitelogo.png"
+            src="/images/logo.png"
             alt="Salvex Auction"
             className="loader-salvex-logo"
-            width={200}
-            height={44}
+            width={320}
+            height={74}
           />
         </div>
 

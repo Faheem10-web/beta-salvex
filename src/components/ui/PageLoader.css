@@ -9,8 +9,8 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background-color: #030407;
-  background: radial-gradient(circle at 50% 46%, #1c0508 0%, #0d0204 36%, #05060b 72%, #020306 100%);
+  background-color: #FFFFFF;
+  background: radial-gradient(circle at 50% 46%, #FFFFFF 0%, #FAFAFA 55%, #F1F5F9 100%);
   z-index: 999999;
   display: flex;
   align-items: center;
@@ -37,54 +37,54 @@
   top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 220px;
-  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.26) 0%, rgba(220, 38, 38, 0.06) 55%, transparent 75%);
-  filter: blur(40px);
+  width: 380px;
+  height: 240px;
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.08) 0%, rgba(220, 38, 38, 0.02) 55%, transparent 75%);
+  filter: blur(45px);
   pointer-events: none;
   z-index: 0;
 }
 
-/* 2. CENTER LOGO: Uses existing Salvex Auction brand logo */
+/* 2. CENTER LOGO: Uses existing Salvex Auction brand logo (increased size) */
 .loader-logo-wrapper {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
   will-change: opacity, transform;
 }
 
 .loader-salvex-logo {
-  width: 200px;
+  width: 320px;
   height: auto;
-  max-height: 48px;
+  max-height: 75px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 4px 22px rgba(220, 38, 38, 0.25)) drop-shadow(0 8px 30px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.06));
 }
 
 /* 4. RED LOADING LINE: Thin Salvex red progress line */
 .loader-progress-track {
   position: relative;
   z-index: 1;
-  width: 140px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
+  width: 180px;
+  height: 3.5px;
+  background: #E2E8F0;
   border-radius: 999px;
   overflow: hidden;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .loader-progress-bar {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #991b1b 0%, #DC2626 60%, #ef4444 100%);
+  background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
   border-radius: 999px;
   transform-origin: left;
   transform: scaleX(0);
-  box-shadow: 0 0 14px rgba(220, 38, 38, 0.9), 0 0 4px #DC2626;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5), 0 0 3px #DC2626;
   will-change: transform;
 }
 
@@ -95,15 +95,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 215px;
-  margin-top: 14px;
+  width: 250px;
+  margin-top: 15px;
   gap: 12px;
 }
 
 .loader-sub-text {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #64748B;
@@ -112,58 +112,79 @@
 
 .loader-percent-num {
   font-family: 'Outfit', 'Inter', monospace, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: #94A3B8;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F172A;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
-  min-width: 28px;
+  min-width: 32px;
   text-align: right;
 }
 
 /* 10. MOBILE OPTIMIZATION (425px - 320px) */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .loader-salvex-logo {
-    width: 155px;
-    max-height: 38px;
+    width: 250px;
+    max-height: 58px;
   }
 
   .loader-logo-wrapper {
-    margin-bottom: 22px;
+    margin-bottom: 24px;
   }
 
   .loader-progress-track {
-    width: 110px;
-    height: 2px;
+    width: 150px;
+    height: 3px;
   }
 
   .loader-meta-row {
-    width: 185px;
+    width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-salvex-logo {
+    width: 210px;
+    max-height: 50px;
+  }
+
+  .loader-logo-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .loader-progress-track {
+    width: 135px;
+    height: 2.5px;
+  }
+
+  .loader-meta-row {
+    width: 200px;
     margin-top: 12px;
     gap: 8px;
   }
 
   .loader-sub-text {
-    font-size: 9px;
+    font-size: 9.5px;
     letter-spacing: 0.06em;
   }
 
   .loader-percent-num {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 340px) {
   .loader-salvex-logo {
-    width: 135px;
+    width: 175px;
+    max-height: 42px;
   }
 
   .loader-meta-row {
-    width: 165px;
+    width: 175px;
   }
 
   .loader-sub-text {
-    font-size: 8px;
+    font-size: 8.5px;
   }
 }
 
