@@ -108,10 +108,12 @@
 }
 
 .middle-row-container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  height: 100%;
 }
 
 /* Left: Currency Selector */
@@ -119,8 +121,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  flex: 1;
-  max-width: 200px;
+  flex: 0 0 auto;
 }
 
 .navbar-currency-btn {
@@ -189,8 +190,13 @@
   font-weight: 600;
 }
 
-/* Center: Brand Logo */
+/* Center: Brand Logo (Exact Mathematical Horizontal & Vertical Center) */
 .navbar-center-brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -645,6 +651,11 @@
 }
 
 @media (max-width: 900px) {
+  .navbar-center-brand {
+    position: static;
+    transform: none;
+    margin-right: auto;
+  }
   .navbar-announcement-bar .announcement-right {
     display: none;
   }
