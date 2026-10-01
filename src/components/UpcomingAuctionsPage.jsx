@@ -70,10 +70,6 @@ export default function UpcomingAuctionsPage({
         <div className="salvex-container upcoming-hero-content">
           <div className="upcoming-hero-inner">
             <div className="upcoming-hero-text">
-              <span className="upcoming-tagline">
-                <Calendar size={14} />
-                PRE-AUCTION CATALOGUE
-              </span>
               <h1 className="upcoming-title">Upcoming Auctions</h1>
               <p className="upcoming-desc">
                 Explore scheduled vehicle lots from banks, insurance corporations, and fleet consignors. Register early to inspect in-yard and participate in bidding.
