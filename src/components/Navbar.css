@@ -784,12 +784,13 @@
   }
 
   .announcement-container {
-    padding: 0 12px !important;
+    padding: 0 8px !important;
   }
 
   .announcement-mobile-content {
-    font-size: 11px;
-    gap: 6px;
+    font-size: 10.5px !important;
+    gap: 5px;
+    letter-spacing: -0.015em;
   }
 
   .middle-row-container {
