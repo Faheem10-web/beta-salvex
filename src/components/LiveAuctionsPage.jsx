@@ -413,7 +413,7 @@ export default function LiveAuctionsPage({
             <div className="mobile-sheet-drag-handle" />
             <div className="mobile-sheet-header">
               <span className="mobile-sheet-title">
-                <Filter size={16} color="#DC2626" />
+                <Filter size={16} color="#075BFF" />
                 Filter Live Auctions
                 {hasActiveFilters && (
                   <span className="filter-badge-count">

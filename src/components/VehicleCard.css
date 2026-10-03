@@ -81,10 +81,10 @@
   backdrop-filter: blur(4px);
 }
 
-/* LIVE state: Red #DC2626 */
+/* LIVE state: Blue #075BFF */
 .status-badge-live {
-  background-color: #DC2626;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+  background-color: #075BFF;
+  box-shadow: 0 2px 8px rgba(7, 91, 255, 0.4);
 }
 
 .status-live-dot {
@@ -160,6 +160,7 @@
   background: rgba(255, 255, 255, 0.95);
   color: #DC2626;
   border-color: #DC2626;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
 }
 
 /* --------------------------------------------------------------------------
@@ -335,13 +336,13 @@
   gap: 4px;
   font-size: 12.5px;
   font-weight: 700;
-  color: #DC2626;
+  color: #075BFF;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
 }
 
 .salvex-countdown-icon {
-  color: #DC2626;
+  color: #075BFF;
   flex-shrink: 0;
 }
 
@@ -373,9 +374,9 @@
 
 .salvex-card-btn-primary {
   height: 38px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
-  border: 1px solid #DC2626;
+  border: 1px solid #075BFF;
   border-radius: 8px;
   font-size: 13.5px;
   font-weight: 600;
@@ -392,8 +393,8 @@
 }
 
 .salvex-card-btn-primary:hover {
-  background-color: #B91C1C;
-  border-color: #B91C1C;
+  background-color: #0048D9;
+  border-color: #0048D9;
 }
 
 .salvex-card-btn-primary:active {

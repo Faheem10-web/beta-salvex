@@ -117,14 +117,14 @@ export default function PageLoader({ onLoadingComplete }) {
       aria-label="Loading Salvex Auction"
     >
       <div className="loader-center-content">
-        {/* Existing Salvex Auction brand logo */}
+        {/* Salvex Auction brand logo */}
         <div className="loader-logo-wrapper" ref={logoRef}>
           <img
-            src="/images/logo.png"
+            src="/images/lg.png"
             alt="Salvex Auction"
             className="loader-salvex-logo"
-            width={320}
-            height={74}
+            width={350}
+            height={117}
           />
         </div>
 

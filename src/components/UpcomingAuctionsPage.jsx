@@ -303,7 +303,7 @@ export default function UpcomingAuctionsPage({
             <div className="mobile-sheet-drag-handle" />
             <div className="mobile-sheet-header">
               <span className="mobile-sheet-title">
-                <Filter size={16} color="#DC2626" />
+                <Filter size={16} color="#075BFF" />
                 Filter Upcoming Auctions
                 {activeFilterCount > 0 && (
                   <span className="filter-badge-count">{activeFilterCount}</span>

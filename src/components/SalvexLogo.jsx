@@ -1,37 +1,22 @@
 import React from 'react';
 
-export default function SalvexLogo({ variant = 'dark', className = '', height = 36 }) {
-  if (variant === 'light' || variant === 'brand') {
-    return (
-      <img
-        src="/images/logo.png"
-        alt="Salvex Auction"
-        className={`salvex-logo-img ${className}`}
-        style={{
-          height: `${height}px`,
-          width: 'auto',
-          maxHeight: '44px',
-          objectFit: 'contain',
-          display: 'block',
-          userSelect: 'none'
-        }}
-      />
-    );
-  }
+export default function SalvexLogo({ variant = 'dark', className = '', height = 62, maxHeight, src, style = {} }) {
+  const effectiveMaxHeight = maxHeight || (typeof height === 'number' ? `${height + 12}px` : '80px');
+  const logoSrc = src || (variant === 'light' || variant === 'brand' ? '/images/lg.png' : '/images/whitelogo.png');
 
-  // Dark variant for dark backgrounds (e.g. dark navbar & footer) -> whitelogo.png
   return (
     <img
-      src="/images/whitelogo.png"
+      src={logoSrc}
       alt="Salvex Auction"
-      className={`salvex-logo-img salvex-logo-dark ${className}`}
+      className={`salvex-logo-img ${variant === 'dark' && !src ? 'salvex-logo-dark' : ''} ${className}`}
       style={{
-        height: `${height}px`,
+        height: typeof height === 'number' ? `${height}px` : height,
         width: 'auto',
-        maxHeight: '42px',
+        maxHeight: effectiveMaxHeight,
         objectFit: 'contain',
         display: 'block',
-        userSelect: 'none'
+        userSelect: 'none',
+        ...style
       }}
     />
   );

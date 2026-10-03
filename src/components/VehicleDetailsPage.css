@@ -115,12 +115,12 @@
   gap: 6px;
   padding: 4px 10px;
   border-radius: 4px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.35);
+  box-shadow: 0 2px 6px rgba(7, 91, 255, 0.35);
   z-index: 2;
 }
 
@@ -210,8 +210,8 @@
 
 .gallery-slide-arrow:hover {
   background: #FFFFFF;
-  color: #DC2626;
-  border-color: #DC2626;
+  color: #075BFF;
+  border-color: #075BFF;
 }
 
 .arrow-left { left: 10px; }
@@ -241,7 +241,7 @@
 }
 
 .thumb-active {
-  border-color: #DC2626 !important;
+  border-color: #075BFF !important;
 }
 
 .thumb-slot-img {
@@ -412,8 +412,8 @@
 
 /* ACCIDENT / DAMAGE DISCLOSURE CARD */
 .salvex-damage-disclosure-card {
-  background-color: #FEF2F2;
-  border: 1px solid #FEE2E2;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
   border-radius: 8px;
   padding: 10px 12px;
   margin-bottom: 14px;
@@ -427,9 +427,9 @@
 }
 
 .cond-damage-status {
-  background-color: #FEE2E2 !important;
-  color: #DC2626 !important;
-  border: 1px solid #FECACA !important;
+  background-color: #EFF6FF !important;
+  color: #075BFF !important;
+  border: 1px solid #BFDBFE !important;
   font-weight: 700;
 }
 
@@ -456,7 +456,7 @@
   font-family: inherit;
   font-size: 12px;
   font-weight: 600;
-  color: #DC2626;
+  color: #075BFF;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -487,7 +487,7 @@
   font-family: inherit;
   font-size: 12px;
   font-weight: 600;
-  color: #DC2626;
+  color: #075BFF;
   cursor: pointer;
 }
 
@@ -532,14 +532,14 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #DC2626;
+  color: #075BFF;
 }
 
 .pulse-red-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #DC2626;
+  background-color: #075BFF;
   animation: pulse-dot 1.2s infinite;
 }
 
@@ -591,7 +591,7 @@
 .bid-price-large {
   font-size: 24px;
   font-weight: 800;
-  color: #DC2626;
+  color: #075BFF;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -661,8 +661,8 @@
 }
 
 .bid-field-box:focus-within {
-  border-color: #DC2626;
-  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+  border-color: #075BFF;
+  box-shadow: 0 0 0 2px rgba(7, 91, 255, 0.15);
 }
 
 .currency-prefix {
@@ -763,11 +763,11 @@
   border-color: #0B1220;
 }
 
-/* Primary CTA: PLACE BID → in #DC2626 */
+/* Primary CTA: PLACE BID → in #075BFF */
 .btn-primary-place-bid {
   width: 100%;
   height: 48px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   border: none;
   border-radius: 6px;
@@ -780,12 +780,12 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 3px 12px rgba(7, 91, 255, 0.3);
   transition: all 0.15s ease;
 }
 
 .btn-primary-place-bid:hover {
-  background-color: #B91C1C;
+  background-color: #0048D9;
   transform: translateY(-1px);
 }
 
@@ -852,7 +852,7 @@
   left: 0;
   right: 0;
   height: 2.5px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   border-radius: 2px 2px 0 0;
 }
 
@@ -940,7 +940,7 @@
   font-family: inherit;
   font-size: 12.5px;
   font-weight: 600;
-  color: #DC2626;
+  color: #075BFF;
   cursor: pointer;
   padding: 0;
 }
@@ -1027,7 +1027,7 @@
 }
 
 .text-live-red {
-  color: #DC2626 !important;
+  color: #075BFF !important;
   font-weight: 700;
 }
 
@@ -1122,7 +1122,7 @@
 }
 
 .top-bid-row {
-  background-color: #FEF2F2 !important;
+  background-color: #EFF6FF !important;
 }
 
 .bidder-code {
@@ -1134,8 +1134,8 @@
 .highest-tag {
   font-size: 9.5px;
   font-weight: 700;
-  color: #DC2626;
-  background-color: #FEE2E2;
+  color: #075BFF;
+  background-color: #EFF6FF;
   padding: 1px 5px;
   border-radius: 3px;
   margin-left: 6px;
@@ -1250,7 +1250,7 @@
   font-family: inherit;
   font-size: 12px;
   font-weight: 600;
-  color: #DC2626;
+  color: #075BFF;
   cursor: pointer;
   padding: 0;
 }
@@ -1309,7 +1309,7 @@
 .similar-title-accent {
   width: 28px;
   height: 2.5px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   border-radius: 2px;
   margin-top: 4px;
 }
@@ -1357,14 +1357,14 @@
   .mb-amount {
     font-size: 18px;
     font-weight: 800;
-    color: #DC2626;
+    color: #075BFF;
     line-height: 1.1;
   }
 
   .mobile-bar-bid-btn {
     height: 42px;
     padding: 0 20px;
-    background-color: #DC2626;
+    background-color: #075BFF;
     color: #FFFFFF;
     border: none;
     border-radius: 6px;

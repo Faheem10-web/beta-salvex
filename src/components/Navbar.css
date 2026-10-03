@@ -42,10 +42,10 @@
 }
 
 /* ==========================================================================
-   TIER 0: CRIMSON RED ANNOUNCEMENT BAR (#DC2626)
+   TIER 0: ROYAL BLUE ANNOUNCEMENT BAR (#075BFF)
    ========================================================================== */
 .navbar-announcement-bar {
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   height: 36px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -84,7 +84,7 @@
   justify-content: flex-end;
   gap: 6px;
   font-size: 11.5px;
-  color: #FEE2E2;
+  color: #DBEAFE;
   white-space: nowrap;
 }
 
@@ -102,7 +102,7 @@
    TIER 1: MAIN MIDDLE ROW (WHITE BACKGROUND)
    ========================================================================== */
 .navbar-middle-row {
-  height: 72px;
+  height: 78px;
   background-color: #FFFFFF;
   border-bottom: 1px solid #F1F5F9;
 }
@@ -146,7 +146,7 @@
 }
 
 .navbar-currency-btn:hover {
-  color: #DC2626;
+  color: #075BFF;
 }
 
 .currency-chevron {
@@ -190,8 +190,8 @@
 
 .currency-option:hover,
 .currency-option.active {
-  background-color: #FEE2E2;
-  color: #DC2626;
+  background-color: #EFF6FF;
+  color: #075BFF;
   font-weight: 600;
 }
 
@@ -202,7 +202,7 @@
   margin: 0 4px;
 }
 
-/* Left Search Icon Button (White rounded square with crisp red search icon matching user image) */
+/* Left Search Icon Button (White rounded square with crisp blue search icon) */
 .btn-navbar-search-icon {
   display: inline-flex;
   align-items: center;
@@ -218,10 +218,10 @@
 }
 
 .btn-navbar-search-icon:hover {
-  border-color: #DC2626;
-  background-color: #FFF5F5;
+  border-color: #075BFF;
+  background-color: #EFF6FF;
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 3px 8px rgba(7, 91, 255, 0.15);
 }
 
 .btn-navbar-search-icon:active {
@@ -229,7 +229,7 @@
 }
 
 .navbar-search-red-icon {
-  color: #DC2626;
+  color: #075BFF;
   flex-shrink: 0;
   transition: transform 0.15s ease;
 }
@@ -255,6 +255,13 @@
 
 .navbar-center-brand:hover {
   opacity: 0.92;
+}
+
+.navbar-center-brand .salvex-logo-img {
+  height: 64px;
+  max-height: 68px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Right: Actions Group (List Your Vehicle + Wishlist + Login + Register) */
@@ -290,7 +297,7 @@
 .btn-nav-list-vehicle:hover {
   background-color: #F8FAFC;
   border-color: #94A3B8;
-  color: #DC2626;
+  color: #075BFF;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
@@ -317,7 +324,7 @@
 }
 
 .navbar-action-icon-btn:hover {
-  color: #DC2626;
+  color: #075BFF;
   background-color: #F8FAFC;
   transform: translateY(-1px);
 }
@@ -329,7 +336,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;
@@ -339,7 +346,7 @@
   border: 1.5px solid #FFFFFF;
 }
 
-/* Register as Bidder Red CTA Button */
+/* Register as Bidder Blue CTA Button */
 .btn-register-red {
   display: inline-flex;
   align-items: center;
@@ -347,7 +354,7 @@
   gap: 8px;
   height: 40px;
   padding: 0 18px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 13.5px;
@@ -358,13 +365,13 @@
   white-space: nowrap;
   flex-shrink: 0;
   transition: all 0.15s ease;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 2px 8px rgba(7, 91, 255, 0.25);
 }
 
 .btn-register-red:hover {
-  background-color: #B91C1C;
+  background-color: #0048D9;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  box-shadow: 0 4px 14px rgba(7, 91, 255, 0.35);
 }
 
 .btn-register-red:active {
@@ -426,7 +433,7 @@
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -434,12 +441,12 @@
   color: #FFFFFF;
   cursor: pointer;
   padding: 0;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.28);
+  box-shadow: 0 2px 8px rgba(7, 91, 255, 0.28);
   transition: all 0.15s ease;
 }
 
 .mobile-user-box-btn:hover {
-  background-color: #B91C1C;
+  background-color: #0048D9;
   transform: translateY(-1px);
 }
 
@@ -489,11 +496,11 @@
 }
 
 .nav-link-btn:hover {
-  color: #DC2626;
+  color: #075BFF;
 }
 
 .nav-link-btn.nav-link-active {
-  color: #DC2626;
+  color: #075BFF;
   font-weight: 600;
 }
 
@@ -503,7 +510,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   border-radius: 2px 2px 0 0;
 }
 
@@ -511,7 +518,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;
@@ -623,8 +630,8 @@
 
 .mobile-nav-item:hover,
 .mobile-nav-item.mobile-nav-active {
-  background-color: #FEE2E2;
-  color: #DC2626;
+  background-color: #EFF6FF;
+  color: #075BFF;
   font-weight: 600;
 }
 
@@ -766,7 +773,8 @@
 
   .navbar-center-brand img,
   .navbar-center-brand svg {
-    height: 32px !important;
+    height: 46px !important;
+    max-height: 48px !important;
     width: auto !important;
   }
 
@@ -806,7 +814,8 @@
 
   .navbar-center-brand img,
   .navbar-center-brand svg {
-    height: 28px !important;
+    height: 40px !important;
+    max-height: 42px !important;
   }
 
   .mobile-search-box-btn {
@@ -833,7 +842,8 @@
 
   .navbar-center-brand img,
   .navbar-center-brand svg {
-    height: 25px !important;
+    height: 35px !important;
+    max-height: 36px !important;
   }
 
   .mobile-search-box-btn {

@@ -28,9 +28,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(220, 38, 38, 0.14);
-  border: 1px solid rgba(220, 38, 38, 0.35);
-  color: #EF4444;
+  background: rgba(7, 91, 255, 0.14);
+  border: 1px solid rgba(7, 91, 255, 0.35);
+  color: #075BFF;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -73,8 +73,8 @@
 }
 
 .faq-search-box:focus-within {
-  border-color: #DC2626;
-  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.25), 0 0 0 3px rgba(220, 38, 38, 0.15);
+  border-color: #075BFF;
+  box-shadow: 0 8px 30px rgba(7, 91, 255, 0.25), 0 0 0 3px rgba(7, 91, 255, 0.15);
 }
 
 .faq-search-box .search-icon {
@@ -111,7 +111,7 @@
 }
 
 .search-clear-btn:hover {
-  color: #DC2626;
+  color: #075BFF;
 }
 
 /* 02 CATEGORY FILTER PILLS BAR */
@@ -216,8 +216,8 @@
 .faq-category-tag {
   font-size: 11px;
   font-weight: 700;
-  color: #DC2626;
-  background: rgba(220, 38, 38, 0.08);
+  color: #075BFF;
+  background: rgba(7, 91, 255, 0.08);
   padding: 3px 8px;
   border-radius: 4px;
   text-transform: uppercase;
@@ -239,7 +239,7 @@
 
 .faq-chevron.chevron-rotated {
   transform: rotate(180deg);
-  color: #DC2626;
+  color: #075BFF;
 }
 
 /* Answer Panel */
@@ -335,12 +335,12 @@
 }
 
 .salvex-btn-primary {
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
 }
 
 .salvex-btn-primary:hover {
-  background-color: #B91C1C;
+  background-color: #0048D9;
 }
 
 .salvex-btn-outline {

@@ -6,8 +6,8 @@
   /* Brand Color Tokens */
   --color-primary-navy: #0B1220;
   --color-dark-navy: #070B14;
-  --color-auction-red: #DC2626;
-  --color-auction-red-hover: #B91C1C;
+  --color-auction-red: #075BFF;
+  --color-auction-red-hover: #0048D9;
   --color-white: #FFFFFF;
   --color-off-white: #F8FAFC;
   --color-border: #E2E8F0;
@@ -287,8 +287,8 @@ img {
 }
 
 .filter-chip:hover {
-  background-color: #FEE2E2;
-  color: #DC2626;
-  border-color: #FCA5A5;
+  background-color: #EFF6FF;
+  color: #075BFF;
+  border-color: #BFDBFE;
 }
 

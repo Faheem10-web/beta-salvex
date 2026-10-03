@@ -121,7 +121,7 @@
 }
 
 .contact-v2-title-red {
-  color: #DC2626;
+  color: #075BFF;
 }
 
 .contact-v2-subtitle {
@@ -198,7 +198,7 @@
 }
 
 .icon-box-red {
-  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  background: linear-gradient(135deg, #075BFF 0%, #0048D9 100%);
 }
 
 .icon-box-green {
@@ -251,7 +251,7 @@
 }
 
 .contact-channel-card:hover .channel-chevron {
-  color: #DC2626;
+  color: #075BFF;
   transform: translateX(3px);
 }
 
@@ -324,7 +324,7 @@
 }
 
 .label-required {
-  color: #DC2626;
+  color: #075BFF;
   margin-left: 2px;
 }
 
@@ -363,8 +363,8 @@
 
 .form-input-v2:focus {
   background: #FFFFFF;
-  border-color: #DC2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+  border-color: #075BFF;
+  box-shadow: 0 0 0 3px rgba(7, 91, 255, 0.12);
 }
 
 /* Custom Dropdown */
@@ -393,8 +393,8 @@
 
 .form-select-v2:focus {
   background: #FFFFFF;
-  border-color: #DC2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+  border-color: #075BFF;
+  box-shadow: 0 0 0 3px rgba(7, 91, 255, 0.12);
 }
 
 .select-chevron-icon {
@@ -439,16 +439,16 @@
 
 .form-textarea-v2:focus {
   background: #FFFFFF;
-  border-color: #DC2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+  border-color: #075BFF;
+  box-shadow: 0 0 0 3px rgba(7, 91, 255, 0.12);
 }
 
-/* Red Submit Button matching reference */
+/* Blue Submit Button */
 .btn-send-enquiry-v2 {
   width: 100%;
   height: 50px;
-  background: #DC2626;
-  background: linear-gradient(135deg, #DC2626 0%, #C81E1E 100%);
+  background: #075BFF;
+  background: linear-gradient(135deg, #075BFF 0%, #0048D9 100%);
   color: #FFFFFF;
   border: none;
   border-radius: 10px;
@@ -460,14 +460,14 @@
   padding: 0 24px;
   cursor: pointer;
   transition: all 0.22s ease;
-  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  box-shadow: 0 4px 14px rgba(7, 91, 255, 0.35);
   margin-top: 6px;
 }
 
 .btn-send-enquiry-v2:hover:not(:disabled) {
-  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+  background: linear-gradient(135deg, #0048D9 0%, #003BB3 100%);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.45);
+  box-shadow: 0 6px 20px rgba(7, 91, 255, 0.45);
 }
 
 .btn-send-enquiry-v2:disabled {
@@ -581,7 +581,7 @@
 }
 
 .popup-red-pin {
-  color: #DC2626;
+  color: #075BFF;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -606,13 +606,13 @@
   gap: 4px;
   font-size: 11px;
   font-weight: 700;
-  color: #DC2626;
+  color: #075BFF;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .popup-dir-link:hover {
-  color: #B91C1C;
+  color: #0048D9;
   text-decoration: underline;
 }
 

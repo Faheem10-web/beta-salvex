@@ -36,12 +36,12 @@ function PremiumGavelIcon() {
     <svg width="26" height="26" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="gavelHeadGrad" x1="8" y1="2" x2="26" y2="20" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#F87171" />
-          <stop offset="1" stopColor="#DC2626" />
+          <stop stopColor="#60A5FA" />
+          <stop offset="1" stopColor="#075BFF" />
         </linearGradient>
         <linearGradient id="gavelShaftGrad" x1="6" y1="22" x2="16" y2="12" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFFFFF" />
-          <stop offset="1" stopColor="#FCA5A5" />
+          <stop offset="1" stopColor="#93C5FD" />
         </linearGradient>
       </defs>
       <rect
@@ -196,9 +196,9 @@ export default function WhySalvex({ features }) {
     },
     {
       Component: PremiumGavelIcon,
-      bg: 'linear-gradient(135deg, #EF4444 0%, #B91C1C 100%)',
-      shadow: '0 8px 24px -2px rgba(220, 38, 38, 0.40)',
-      accentColor: '#DC2626'
+      bg: 'linear-gradient(135deg, #075BFF 0%, #0048D9 100%)',
+      shadow: '0 8px 24px -2px rgba(7, 91, 255, 0.40)',
+      accentColor: '#075BFF'
     },
     {
       Component: PremiumLockIcon,

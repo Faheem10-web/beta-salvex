@@ -156,7 +156,7 @@ export default function RegisterModal({ isOpen, onClose }) {
             {/* 6-Step Progress Indicator */}
             <div className="register-step-progress" style={{ marginBottom: '20px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <span style={{ fontSize: '11px', fontWeight: '700', color: '#DC2626', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <span style={{ fontSize: '11px', fontWeight: '700', color: '#075BFF', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Step {currentStep} of 6 — {stepLabels[currentStep - 1].title}
                 </span>
                 <span style={{ fontSize: '11px', color: '#64748B' }}>
@@ -168,7 +168,7 @@ export default function RegisterModal({ isOpen, onClose }) {
                   style={{
                     width: `${(currentStep / 6) * 100}%`,
                     height: '100%',
-                    backgroundColor: '#DC2626',
+                    backgroundColor: '#075BFF',
                     transition: 'width 0.25s ease'
                   }}
                 />
@@ -177,7 +177,7 @@ export default function RegisterModal({ isOpen, onClose }) {
 
             {/* Error Message */}
             {validationError && (
-              <div style={{ backgroundColor: '#FEF2F2', border: '1px solid #FECACA', color: '#DC2626', padding: '8px 12px', borderRadius: '6px', fontSize: '12.5px', marginBottom: '16px' }}>
+              <div style={{ backgroundColor: '#EFF6FF', border: '1px solid #BFDBFE', color: '#075BFF', padding: '8px 12px', borderRadius: '6px', fontSize: '12.5px', marginBottom: '16px' }}>
                 {validationError}
               </div>
             )}
@@ -471,7 +471,7 @@ export default function RegisterModal({ isOpen, onClose }) {
                 <button
                   type="submit"
                   style={{
-                    backgroundColor: '#DC2626',
+                    backgroundColor: '#075BFF',
                     color: '#FFFFFF',
                     border: 'none',
                     borderRadius: '6px',
@@ -482,7 +482,7 @@ export default function RegisterModal({ isOpen, onClose }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    boxShadow: '0 2px 8px rgba(220, 38, 38, 0.35)'
+                    boxShadow: '0 2px 8px rgba(7, 91, 255, 0.35)'
                   }}
                 >
                   <span>{currentStep === 6 ? 'Complete Registration' : 'Continue'}</span>

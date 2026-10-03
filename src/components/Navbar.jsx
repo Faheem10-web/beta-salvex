@@ -213,7 +213,7 @@ export default function Navbar({
               tabIndex={0}
               title="Salvex Auction Home"
             >
-              <SalvexLogo variant="light" height={36} />
+              <SalvexLogo variant="light" height={64} src="/images/lg.png" />
             </div>
 
             {/* DESKTOP ONLY: List Your Vehicle + Wishlist + Login + Register CTA */}

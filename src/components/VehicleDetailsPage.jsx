@@ -854,7 +854,7 @@ export default function VehicleDetailsPage({
                           transition: 'background-color 0.15s ease'
                         }}
                       >
-                        <MapPin size={13} color="#DC2626" />
+                        <MapPin size={13} color="#075BFF" />
                         <span>Get Directions on Google Maps ↗</span>
                       </a>
                     </div>
@@ -1023,8 +1023,8 @@ export default function VehicleDetailsPage({
           <div className="modal-card" style={{ maxWidth: '440px', padding: '0', overflow: 'hidden' }}>
             <div className="modal-header" style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#FEF2F2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Gavel size={16} color="#DC2626" />
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#EFF6FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Gavel size={16} color="#075BFF" />
                 </div>
                 <div>
                   <h3 style={{ fontSize: '16px', fontWeight: '700', color: '#0B1220', margin: 0 }}>
@@ -1047,7 +1047,7 @@ export default function VehicleDetailsPage({
               <div style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '14px', marginBottom: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '13px' }}>
                   <span style={{ color: '#64748B' }}>Your Bid:</span>
-                  <span style={{ fontWeight: '800', color: '#DC2626', fontSize: '16px' }}>{formatCurrency(bidAmount)}</span>
+                  <span style={{ fontWeight: '800', color: '#075BFF', fontSize: '16px' }}>{formatCurrency(bidAmount)}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '12.5px' }}>
                   <span style={{ color: '#64748B' }}>Current Bid:</span>
@@ -1087,12 +1087,12 @@ export default function VehicleDetailsPage({
                     height: '42px',
                     borderRadius: '6px',
                     border: 'none',
-                    backgroundColor: '#DC2626',
+                    backgroundColor: '#075BFF',
                     color: '#FFFFFF',
                     fontWeight: '700',
                     fontSize: '13.5px',
                     cursor: 'pointer',
-                    boxShadow: '0 2px 8px rgba(220, 38, 38, 0.35)'
+                    boxShadow: '0 2px 8px rgba(7, 91, 255, 0.35)'
                   }}
                 >
                   Confirm Bid →
@@ -1244,8 +1244,8 @@ export default function VehicleDetailsPage({
           <div className="modal-card" style={{ maxWidth: '600px' }}>
             <div className="modal-header">
               <div className="modal-title-row">
-                <div className="modal-icon-bubble" style={{ backgroundColor: '#FEF2F2' }}>
-                  <Gavel size={20} color="#DC2626" />
+                <div className="modal-icon-bubble" style={{ backgroundColor: '#EFF6FF' }}>
+                  <Gavel size={20} color="#075BFF" />
                 </div>
                 <div>
                   <h3 className="modal-title">Salvex Auction Policy &amp; Rules</h3>

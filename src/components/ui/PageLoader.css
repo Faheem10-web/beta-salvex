@@ -39,7 +39,7 @@
   transform: translate(-50%, -50%);
   width: 380px;
   height: 240px;
-  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.08) 0%, rgba(220, 38, 38, 0.02) 55%, transparent 75%);
+  background: radial-gradient(ellipse at center, rgba(7, 91, 255, 0.08) 0%, rgba(7, 91, 255, 0.02) 55%, transparent 75%);
   filter: blur(45px);
   pointer-events: none;
   z-index: 0;
@@ -57,15 +57,15 @@
 }
 
 .loader-salvex-logo {
-  width: 320px;
+  width: 350px;
   height: auto;
-  max-height: 75px;
+  max-height: 115px;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.06));
 }
 
-/* 4. RED LOADING LINE: Thin Salvex red progress line */
+/* 4. BLUE LOADING LINE: Thin Salvex blue progress line */
 .loader-progress-track {
   position: relative;
   z-index: 1;
@@ -80,11 +80,11 @@
 .loader-progress-bar {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+  background: linear-gradient(90deg, #075BFF 0%, #3B82F6 100%);
   border-radius: 999px;
   transform-origin: left;
   transform: scaleX(0);
-  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5), 0 0 3px #DC2626;
+  box-shadow: 0 0 10px rgba(7, 91, 255, 0.5), 0 0 3px #075BFF;
   will-change: transform;
 }
 
@@ -124,8 +124,8 @@
 /* 10. MOBILE OPTIMIZATION (425px - 320px) */
 @media (max-width: 640px) {
   .loader-salvex-logo {
-    width: 250px;
-    max-height: 58px;
+    width: 280px;
+    max-height: 94px;
   }
 
   .loader-logo-wrapper {
@@ -144,8 +144,8 @@
 
 @media (max-width: 480px) {
   .loader-salvex-logo {
-    width: 210px;
-    max-height: 50px;
+    width: 240px;
+    max-height: 80px;
   }
 
   .loader-logo-wrapper {
@@ -175,8 +175,8 @@
 
 @media (max-width: 340px) {
   .loader-salvex-logo {
-    width: 175px;
-    max-height: 42px;
+    width: 190px;
+    max-height: 64px;
   }
 
   .loader-meta-row {

@@ -539,8 +539,8 @@ export const whySalvexFeatures = [
     number: '02',
     title: 'Transparent Bidding',
     description: 'A clear and open online auction process.',
-    color: '#DC2626', // Auction Red
-    semanticName: 'Auction Red'
+    color: '#075BFF', // Brand Blue
+    semanticName: 'Brand Blue'
   },
   {
     number: '03',

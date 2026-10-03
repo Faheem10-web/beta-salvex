@@ -25,7 +25,7 @@ export default function SavedModal({
         <div className="modal-header">
           <div className="modal-title-row">
             <div className="modal-icon-bubble">
-              <Heart size={20} className="text-auction-red" fill="#DC2626" />
+              <Heart size={20} fill="#DC2626" color="#DC2626" />
             </div>
             <div>
               <h3 className="modal-title">Saved Vehicles ({savedVehicles.length})</h3>

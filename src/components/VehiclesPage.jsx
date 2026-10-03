@@ -152,7 +152,7 @@ export default function VehiclesPage({
     <>
       <div className="filter-card-header">
         <span className="filter-card-title">
-          <Filter size={15} color="#DC2626" /> Filter Vehicles
+          <Filter size={15} color="#075BFF" /> Filter Vehicles
         </span>
         {activeFilterCount > 0 && (
           <button
@@ -188,7 +188,7 @@ export default function VehiclesPage({
       <div className="filter-group-block">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
           <label className="filter-group-label" style={{ display: 'flex', alignItems: 'center', gap: '4px', margin: 0 }}>
-            <IndianRupee size={12} color="#DC2626" /> Budget / Price
+            <IndianRupee size={12} color="#075BFF" /> Budget / Price
           </label>
           {selectedBudget !== 'All' && (
             <button
@@ -504,9 +504,9 @@ export default function VehiclesPage({
             <div className="mobile-sheet-drag-handle" />
             <div className="mobile-sheet-header">
               <span className="mobile-sheet-title">
-                <Filter size={16} color="#DC2626" /> Filter Vehicles
+                <Filter size={16} color="#075BFF" /> Filter Vehicles
                 {activeFilterCount > 0 && (
-                  <span className="filter-badge-count" style={{ backgroundColor: '#DC2626', color: '#FFFFFF' }}>
+                  <span className="filter-badge-count" style={{ backgroundColor: '#075BFF', color: '#FFFFFF' }}>
                     {activeFilterCount}
                   </span>
                 )}

@@ -59,7 +59,7 @@
 }
 
 .about-headline .text-highlight {
-  color: #DC2626;
+  color: #075BFF;
 }
 
 .about-supporting-text {
@@ -81,7 +81,7 @@
 .btn-about-primary {
   height: 48px;
   padding: 0 24px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   font-family: inherit;
   font-size: 14.5px;
@@ -92,13 +92,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 2px 8px rgba(7, 91, 255, 0.25);
   transition: all 0.15s ease;
 }
 
 .btn-about-primary:hover {
-  background-color: #B91C1C;
-  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  background-color: #0048D9;
+  box-shadow: 0 4px 14px rgba(7, 91, 255, 0.35);
   transform: translateY(-1px);
 }
 
@@ -513,7 +513,7 @@
 .btn-approach-primary {
   height: 48px;
   padding: 0 22px;
-  background-color: #DC2626;
+  background-color: #075BFF;
   color: #FFFFFF;
   font-family: inherit;
   font-size: 14px;
@@ -524,13 +524,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 2px 8px rgba(7, 91, 255, 0.25);
   transition: all 0.15s ease;
 }
 
 .btn-approach-primary:hover {
-  background-color: #B91C1C;
-  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  background-color: #0048D9;
+  box-shadow: 0 4px 14px rgba(7, 91, 255, 0.35);
 }
 
 .btn-approach-secondary {
